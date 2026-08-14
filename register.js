@@ -17,13 +17,12 @@
       ↓
    Continue to profile/dashboard
 
-   IMPORTANT:
-   - No verification.html is required.
+   SECURITY:
    - Password is handled by Supabase Auth.
    - Password is NEVER stored in sessionStorage.
-   - Identity number is NOT stored in sessionStorage.
+   - Identity number is NEVER stored in sessionStorage.
    - Never use the Supabase service-role/secret key here.
-   - This file uses the publishable/anon client key only.
+   - Browser code uses only the publishable/anon key.
 ========================================================= */
 
 
@@ -80,8 +79,7 @@ const AFRIORA_CLIENT =
     );
 
 
-window.AFRIORA_SUPABASE =
-    AFRIORA_CLIENT;
+window.AFRIORA_SUPABASE = AFRIORA_CLIENT;
 
 
 /* =========================================================
@@ -549,16 +547,13 @@ function updateCountry(countryData) {
     }
 
     if (identityHelp) {
-
         identityHelp.textContent =
             `Enter your ${countryData.identity.toLowerCase()}.`;
     }
 
     if (phone) {
-
         phone.placeholder =
-            countryData.phoneCode +
-            " XX XXX XXXX";
+            countryData.phoneCode + " XX XXX XXXX";
     }
 
     hideCountryResults();
@@ -588,16 +583,9 @@ function renderCountryResults(searchValue = "") {
             }
 
             return (
-                item.name
-                    .toLowerCase()
-                    .includes(search) ||
-
-                item.code
-                    .toLowerCase()
-                    .includes(search) ||
-
-                item.phoneCode
-                    .includes(search)
+                item.name.toLowerCase().includes(search) ||
+                item.code.toLowerCase().includes(search) ||
+                item.phoneCode.includes(search)
             );
 
         });
@@ -652,9 +640,7 @@ function renderCountryResults(searchValue = "") {
 
         button.addEventListener(
             "click",
-            function () {
-                updateCountry(item);
-            }
+            () => updateCountry(item)
         );
 
         countryResults.appendChild(button);
@@ -686,13 +672,7 @@ if (countrySearch) {
 
     countrySearch.addEventListener(
         "input",
-        function () {
-
-            /*
-             * If the user changes the country text after
-             * selecting a country, clear the hidden country
-             * value so an old selection cannot be submitted.
-             */
+        () => {
 
             if (country) {
                 country.value = "";
@@ -700,10 +680,12 @@ if (countrySearch) {
 
             if (identityGroup) {
                 identityGroup.hidden = true;
+                identityGroup.style.display = "none";
             }
 
             if (selectedCountry) {
                 selectedCountry.hidden = true;
+                selectedCountry.style.display = "none";
             }
 
             renderCountryResults(
@@ -714,7 +696,7 @@ if (countrySearch) {
 
     countrySearch.addEventListener(
         "focus",
-        function () {
+        () => {
 
             renderCountryResults(
                 countrySearch.value
@@ -731,7 +713,7 @@ if (countrySearch) {
 
 document.addEventListener(
     "click",
-    function (event) {
+    event => {
 
         if (
             countryResults &&
@@ -739,36 +721,11 @@ document.addEventListener(
             !countryResults.contains(event.target) &&
             event.target !== countrySearch
         ) {
-
             hideCountryResults();
-
         }
 
     }
 );
-
-
-/* =========================================================
-   COUNTRY HIDDEN INPUT
-========================================================= */
-
-if (country) {
-
-    country.addEventListener(
-        "change",
-        function () {
-
-            const selected =
-                findCountry(country.value);
-
-            if (selected) {
-                updateCountry(selected);
-            }
-
-        }
-    );
-
-}
 
 
 /* =========================================================
@@ -778,60 +735,41 @@ if (country) {
 function setupPasswordToggle() {
 
     if (!showPassword || !password) {
-
-        console.warn(
-            "AFRIORA: Password toggle elements not found."
-        );
-
         return;
     }
 
     showPassword.addEventListener(
         "click",
-        function (event) {
+        event => {
 
             event.preventDefault();
-            event.stopPropagation();
 
-            if (password.type === "password") {
+            const isPassword =
+                password.type === "password";
 
-                password.type = "text";
+            password.type =
+                isPassword ? "text" : "password";
 
-                showPassword.innerHTML =
-                    '<i class="fa-solid fa-eye-slash"></i>';
+            showPassword.innerHTML =
+                isPassword
+                    ? '<i class="fa-solid fa-eye-slash"></i>'
+                    : '<i class="fa-solid fa-eye"></i>';
 
-                showPassword.setAttribute(
-                    "aria-label",
-                    "Hide password"
-                );
+            showPassword.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
 
-                showPassword.setAttribute(
-                    "title",
-                    "Hide password"
-                );
-
-            } else {
-
-                password.type = "password";
-
-                showPassword.innerHTML =
-                    '<i class="fa-solid fa-eye"></i>';
-
-                showPassword.setAttribute(
-                    "aria-label",
-                    "Show password"
-                );
-
-                showPassword.setAttribute(
-                    "title",
-                    "Show password"
-                );
-
-            }
-
+            showPassword.setAttribute(
+                "title",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
         }
     );
-
 }
 
 setupPasswordToggle();
@@ -841,11 +779,7 @@ setupPasswordToggle();
    PASSWORD STRENGTH
 ========================================================= */
 
-function checkPasswordStrength(value) {
-
-    if (!strengthBar) {
-        return;
-    }
+function getPasswordScore(value) {
 
     let score = 0;
 
@@ -869,11 +803,24 @@ function checkPasswordStrength(value) {
         score++;
     }
 
+    return score;
+}
+
+
+function checkPasswordStrength(value) {
+
+    if (!strengthBar) {
+        return 0;
+    }
+
+    const score =
+        getPasswordScore(value);
+
     const width =
         (score / 5) * 100;
 
     strengthBar.style.width =
-        width + "%";
+        `${width}%`;
 
     if (passwordStrength) {
 
@@ -904,9 +851,9 @@ function checkPasswordStrength(value) {
 
         strengthBar.style.background =
             "#68d89a";
-
     }
 
+    return score;
 }
 
 
@@ -918,7 +865,7 @@ if (password) {
 
     password.addEventListener(
         "input",
-        function () {
+        () => {
 
             checkPasswordStrength(
                 password.value
@@ -928,7 +875,6 @@ if (password) {
 
         }
     );
-
 }
 
 
@@ -976,16 +922,11 @@ function checkPasswordMatch() {
             matches
                 ? "Passwords match."
                 : "Passwords do not match.";
-
     }
 
     return matches;
 }
 
-
-/* =========================================================
-   CONFIRM PASSWORD
-========================================================= */
 
 if (confirmPassword) {
 
@@ -993,7 +934,6 @@ if (confirmPassword) {
         "input",
         checkPasswordMatch
     );
-
 }
 
 
@@ -1003,11 +943,9 @@ if (confirmPassword) {
 
 function validEmail(value) {
 
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        .test(
-            String(value).trim()
-        );
-
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        String(value).trim()
+    );
 }
 
 
@@ -1022,9 +960,7 @@ function isValidAge(dateValue) {
     }
 
     const birthDate =
-        new Date(
-            dateValue + "T00:00:00"
-        );
+        new Date(dateValue + "T00:00:00");
 
     if (Number.isNaN(birthDate.getTime())) {
         return false;
@@ -1063,20 +999,20 @@ function normalizePhone(value) {
     return String(value)
         .trim()
         .replace(/[^\d+]/g, "");
-
 }
 
 
 /* =========================================================
    REGISTRATION CONTEXT
+   ---------------------------------------------------------
+   IMPORTANT:
+   Identity number is deliberately NOT included.
 ========================================================= */
 
 function createRegistrationContext() {
 
     const selected =
-        findCountry(
-            country?.value
-        );
+        findCountry(country?.value);
 
     return {
 
@@ -1102,9 +1038,7 @@ function createRegistrationContext() {
             ),
 
         email:
-            email?.value
-                .trim()
-                .toLowerCase() || "",
+            email?.value.trim().toLowerCase() || "",
 
         identityType:
             selected
@@ -1186,15 +1120,6 @@ function saveRegistrationContext(registration) {
 
 /* =========================================================
    CREATE SUPABASE ACCOUNT
-   ---------------------------------------------------------
-   Supabase sends the confirmation/OTP email according to
-   your Auth email template configuration.
-
-   If your Magic Link / OTP template contains:
-
-       {{ .Token }}
-
-   Supabase sends an OTP code.
 ========================================================= */
 
 async function createSupabaseAccount() {
@@ -1212,7 +1137,9 @@ async function createSupabaseAccount() {
             password: password.value,
 
             options: {
+
                 data: {
+
                     full_name:
                         fullName?.value.trim() || "",
 
@@ -1220,7 +1147,6 @@ async function createSupabaseAccount() {
                         country?.value || ""
                 }
             }
-
         });
 
     if (result.error) {
@@ -1241,7 +1167,10 @@ async function createSupabaseAccount() {
    SAVE OTP INFORMATION
 ========================================================= */
 
-function saveOTPContext(emailAddress, userId) {
+function saveOTPContext(
+    emailAddress,
+    userId
+) {
 
     sessionStorage.setItem(
         "pendingOTPEmail",
@@ -1254,7 +1183,6 @@ function saveOTPContext(emailAddress, userId) {
             "pendingOTPUserId",
             userId
         );
-
     }
 }
 
@@ -1268,98 +1196,6 @@ function goToOTP() {
     window.location.replace(
         OTP_PAGE
     );
-
-}
-
-
-/* =========================================================
-   SAVE USER PROFILE TO SUPABASE
-   ---------------------------------------------------------
-   IMPORTANT:
-   This function intentionally DOES NOT save identityNumber.
-
-   Identity number should be handled later by your secure
-   identity-verification process, not stored in browser
-   sessionStorage.
-
-   Your public.profiles table should have RLS enabled.
-========================================================= */
-
-async function saveUserProfileToSupabase(
-    userId,
-    registration
-) {
-
-    if (!userId) {
-
-        throw new Error(
-            "Cannot save profile without a user ID."
-        );
-
-    }
-
-    const profileData = {
-
-        id:
-            userId,
-
-        full_name:
-            registration.fullName,
-
-        country:
-            registration.country,
-
-        country_name:
-            registration.countryName,
-
-        phone:
-            registration.phone,
-
-        email:
-            registration.email,
-
-        date_of_birth:
-            registration.dob,
-
-        gender:
-            registration.gender,
-
-        relationship_goal:
-            registration.goal,
-
-        identity_type:
-            registration.identityType,
-
-        verification_status:
-            "pending"
-    };
-
-    const {
-        data,
-        error
-    } =
-        await AFRIORA_CLIENT
-            .from("profiles")
-            .upsert(
-                profileData,
-                {
-                    onConflict: "id"
-                }
-            )
-            .select()
-            .single();
-
-    if (error) {
-
-        console.error(
-            "AFRIORA profile database error:",
-            error
-        );
-
-        throw error;
-    }
-
-    return data;
 }
 
 
@@ -1371,7 +1207,7 @@ if (registerForm) {
 
     registerForm.addEventListener(
         "submit",
-        async function (event) {
+        async event => {
 
             event.preventDefault();
 
@@ -1379,6 +1215,9 @@ if (registerForm) {
 
             /* =================================================
                REQUIRED FIELDS
+               -------------------------------------------------
+               Identity number is intentionally NOT validated
+               here because it must not be stored locally.
             ================================================= */
 
             if (
@@ -1386,7 +1225,6 @@ if (registerForm) {
                 !country?.value ||
                 !phone?.value.trim() ||
                 !email?.value.trim() ||
-                !identityNumber?.value.trim() ||
                 !password?.value ||
                 !confirmPassword?.value ||
                 !dob?.value ||
@@ -1398,23 +1236,6 @@ if (registerForm) {
                     "Please complete all required fields.",
                     "error"
                 );
-
-                return;
-            }
-
-
-            /* =================================================
-               EMAIL
-            ================================================= */
-
-            if (!validEmail(email.value)) {
-
-                showMessage(
-                    "Please enter a valid email address.",
-                    "error"
-                );
-
-                email.focus();
 
                 return;
             }
@@ -1435,6 +1256,23 @@ if (registerForm) {
                 );
 
                 countrySearch?.focus();
+
+                return;
+            }
+
+
+            /* =================================================
+               EMAIL
+            ================================================= */
+
+            if (!validEmail(email.value)) {
+
+                showMessage(
+                    "Please enter a valid email address.",
+                    "error"
+                );
+
+                email.focus();
 
                 return;
             }
@@ -1478,27 +1316,10 @@ if (registerForm) {
                PASSWORD QUALITY
             ================================================= */
 
-            let passwordScore = 0;
-
-            if (password.value.length >= 8) {
-                passwordScore++;
-            }
-
-            if (/[A-Z]/.test(password.value)) {
-                passwordScore++;
-            }
-
-            if (/[a-z]/.test(password.value)) {
-                passwordScore++;
-            }
-
-            if (/[0-9]/.test(password.value)) {
-                passwordScore++;
-            }
-
-            if (/[^A-Za-z0-9]/.test(password.value)) {
-                passwordScore++;
-            }
+            const passwordScore =
+                getPasswordScore(
+                    password.value
+                );
 
             if (passwordScore < 3) {
 
@@ -1534,7 +1355,7 @@ if (registerForm) {
                TERMS
             ================================================= */
 
-            if (!terms || !terms.checked) {
+            if (!terms?.checked) {
 
                 showMessage(
                     "Please accept the Terms, Privacy Policy and Safety Rules.",
@@ -1565,23 +1386,22 @@ if (registerForm) {
 
                 registerSubmit.innerHTML =
                     '<i class="fa-solid fa-spinner fa-spin"></i> Creating Account...';
-
             }
 
 
             try {
 
-                /* =================================================
+                /* =============================================
                    CREATE REGISTRATION CONTEXT
-                ================================================= */
+                ============================================= */
 
                 const registration =
                     createRegistrationContext();
 
 
-                /* =================================================
-                   CREATE SUPABASE AUTH USER
-                ================================================= */
+                /* =============================================
+                   CREATE AUTH ACCOUNT
+                ============================================= */
 
                 const authData =
                     await createSupabaseAccount();
@@ -1595,7 +1415,6 @@ if (registerForm) {
                     throw new Error(
                         "Supabase did not return a user account."
                     );
-
                 }
 
 
@@ -1603,30 +1422,22 @@ if (registerForm) {
                     user.id;
 
 
-                /* =================================================
-                   SAVE PROFILE
-                   -------------------------------------------------
-                   This was missing from your original flow.
-                ================================================= */
-
-                await saveUserProfileToSupabase(
-                    user.id,
-                    registration
-                );
-
-
-                /* =================================================
+                /* =============================================
                    SAVE SAFE LOCAL CONTEXT
-                ================================================= */
+
+                   DO NOT save:
+                   - password
+                   - identity number
+                ============================================= */
 
                 saveRegistrationContext(
                     registration
                 );
 
 
-                /* =================================================
+                /* =============================================
                    SAVE OTP CONTEXT
-                ================================================= */
+                ============================================= */
 
                 saveOTPContext(
                     emailAddress,
@@ -1635,14 +1446,14 @@ if (registerForm) {
 
 
                 console.log(
-                    "AFRIORA account created:",
+                    "AFRIORA Auth account created:",
                     user.id
                 );
 
 
-                /* =================================================
+                /* =============================================
                    SUCCESS
-                ================================================= */
+                ============================================= */
 
                 showMessage(
                     "Account created. Check your email for your verification code.",
@@ -1650,9 +1461,9 @@ if (registerForm) {
                 );
 
 
-                /* =================================================
-                   GO TO OTP PAGE
-                ================================================= */
+                /* =============================================
+                   GO TO OTP
+                ============================================= */
 
                 setTimeout(
                     goToOTP,
@@ -1741,16 +1552,6 @@ if (registerForm) {
 
                     message =
                         "Connection problem. Please check your internet connection and try again.";
-
-                }
-
-                else if (
-                    errorText.includes("profiles")
-                ) {
-
-                    message =
-                        "Your account was created, but your profile could not be saved. Please contact support.";
-
                 }
 
 
@@ -1762,19 +1563,16 @@ if (registerForm) {
 
                 if (registerSubmit) {
 
-                    registerSubmit.disabled =
-                        false;
+                    registerSubmit.disabled = false;
 
                     registerSubmit.innerHTML =
                         '<i class="fa-solid fa-user-plus"></i> Continue to Verification';
-
                 }
 
             }
 
         }
     );
-
 }
 
 
@@ -1797,7 +1595,7 @@ if (dob) {
    INITIAL COUNTRY
 ========================================================= */
 
-if (country && country.value) {
+if (country?.value) {
 
     const initialCountry =
         findCountry(country.value);
@@ -1836,8 +1634,6 @@ window.AFRIORA_REGISTER = {
     saveRegistrationContext,
 
     createSupabaseAccount,
-
-    saveUserProfileToSupabase,
 
     checkPasswordStrength,
 
