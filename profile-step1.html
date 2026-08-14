@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="AFRIORA profile setup - basic information">
+
+<title>AFRIORA | Profile Setup</title>
+
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Page CSS -->
+<link
+    rel="stylesheet"
+    href="profile-step1.css">
+
+</head>
+
+
+<body>
+
+
+<main class="profile-page">
+
+
+<div class="profile-container">
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<header class="top-bar">
+
+<a
+    href="welcome.html"
+    class="brand"
+    aria-label="AFRIORA Home">
+
+    <span class="brand-mark">
+        ♥
+    </span>
+
+    <span class="brand-name">
+        AFRIORA
+    </span>
+
+</a>
+
+
+<div class="secure-status">
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+    <span>
+        Secure Setup
+    </span>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+<div class="header-icon">
+
+    <i class="fa-solid fa-user-pen"></i>
+
+</div>
+
+
+<div>
+
+<h1>
+    Create Your Profile
+</h1>
+
+<p>
+    Tell the AFRIORA community a little about yourself.
+    You can update these details later.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROGRESS
+===================================================== -->
+
+<section
+    class="progress-section"
+    aria-label="Profile setup progress">
+
+
+<div class="progress-top">
+
+<span>
+    Profile Setup
+</span>
+
+<strong>
+    Step 1 of 3
+</strong>
+
+</div>
+
+
+<div class="progress-track">
+
+<div
+    class="progress-fill"
+    style="width:33.33%">
+</div>
+
+</div>
+
+
+<div class="progress-steps">
+
+
+<div class="progress-step active">
+
+<span>
+    1
+</span>
+
+<p>
+    Basic Info
+</p>
+
+</div>
+
+
+<div class="progress-step">
+
+<span>
+    2
+</span>
+
+<p>
+    About You
+</p>
+
+</div>
+
+
+<div class="progress-step">
+
+<span>
+    3
+</span>
+
+<p>
+    Preferences
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VERIFICATION STATUS
+===================================================== -->
+
+<section class="verification-card">
+
+
+<div class="verification-icon">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+</div>
+
+
+<div class="verification-content">
+
+<h3>
+    Identity Verification
+</h3>
+
+<p>
+    Your identity information is protected and
+    will never be displayed publicly.
+</p>
+
+
+<div
+    class="verification-status"
+    id="verificationStatus">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<span>
+    Identity verification submitted
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FORM
+===================================================== -->
+
+<form
+    id="stepOneForm"
+    autocomplete="on"
+    novalidate>
+
+
+
+<!-- =====================================================
+     PROFILE PHOTO
+===================================================== -->
+
+<section class="form-section">
+
+
+<div class="section-heading">
+
+<div class="section-number">
+    01
+</div>
+
+
+<div>
+
+<h2>
+    Profile Photo
+</h2>
+
+<p>
+    Choose a clear photo so people know who
+    they are connecting with.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="photo-upload">
+
+
+<div class="photo-preview-wrapper">
+
+<img
+    id="photoPreview"
+    src="assets/images/default-profile.png"
+    alt="Profile photo preview">
+
+<div class="photo-camera">
+
+<i class="fa-solid fa-camera"></i>
+
+</div>
+
+</div>
+
+
+
+<div class="photo-actions">
+
+
+<label
+    for="profilePhoto"
+    class="upload-button">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+Choose Photo
+
+</label>
+
+
+<input
+    type="file"
+    id="profilePhoto"
+    name="profilePhoto"
+    accept="image/jpeg,image/png,image/webp"
+    hidden>
+
+
+<p>
+    JPG, PNG or WebP • Maximum 5 MB
+</p>
+
+</div>
+
+</div>
+
+
+<p
+    id="photoMessage"
+    class="field-message"
+    aria-live="polite">
+</p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     BASIC INFORMATION
+===================================================== -->
+
+<section class="form-section">
+
+
+<div class="section-heading">
+
+
+<div class="section-number">
+    02
+</div>
+
+
+<div>
+
+<h2>
+    Basic Information
+</h2>
+
+<p>
+    Some information comes from your registration
+    and verification details.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+
+<!-- =====================================================
+     FULL NAME
+===================================================== -->
+
+<div class="input-group full-width">
+
+<label for="fullName">
+    Full Name
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-user"></i>
+
+
+<input
+    type="text"
+    id="fullName"
+    name="fullName"
+    readonly
+    placeholder="Your registered name">
+
+
+<i class="fa-solid fa-lock field-lock"></i>
+
+</div>
+
+
+<small>
+    This comes from your verified registration information.
+</small>
+
+</div>
+
+
+
+<!-- =====================================================
+     COUNTRY
+===================================================== -->
+
+<div class="input-group">
+
+<label for="country">
+    Country
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-earth-africa"></i>
+
+
+<input
+    type="text"
+    id="country"
+    name="country"
+    readonly
+    placeholder="Your country">
+
+
+<i class="fa-solid fa-lock field-lock"></i>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GENDER
+===================================================== -->
+
+<div class="input-group">
+
+<label for="gender">
+    Gender
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-venus-mars"></i>
+
+
+<select
+    id="gender"
+    name="gender"
+    required>
+
+<option value="">
+    Select gender
+</option>
+
+<option value="male">
+    Male
+</option>
+
+<option value="female">
+    Female
+</option>
+
+<option value="other">
+    Other
+</option>
+
+<option value="prefer-not-to-say">
+    Prefer not to say
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DATE OF BIRTH
+===================================================== -->
+
+<div class="input-group">
+
+<label for="dob">
+    Date of Birth
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-calendar"></i>
+
+
+<input
+    type="date"
+    id="dob"
+    name="dob"
+    required>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CITY
+===================================================== -->
+
+<div class="input-group">
+
+<label for="city">
+    City / Town
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-location-dot"></i>
+
+
+<input
+    type="text"
+    id="city"
+    name="city"
+    placeholder="Example: Accra"
+    autocomplete="address-level2"
+    required>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     OCCUPATION
+===================================================== -->
+
+<div class="input-group">
+
+<label for="occupation">
+    Occupation
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-briefcase"></i>
+
+
+<input
+    type="text"
+    id="occupation"
+    name="occupation"
+    placeholder="Your profession"
+    autocomplete="organization-title"
+    required>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<div class="input-group full-width">
+
+<label for="education">
+    Education Level
+</label>
+
+
+<div class="input-wrapper">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+
+<select
+    id="education"
+    name="education"
+    required>
+
+<option value="">
+    Select education level
+</option>
+
+<option value="secondary">
+    Secondary School
+</option>
+
+<option value="certificate">
+    Certificate
+</option>
+
+<option value="diploma">
+    Diploma
+</option>
+
+<option value="bachelor">
+    Bachelor's Degree
+</option>
+
+<option value="masters">
+    Master's Degree
+</option>
+
+<option value="doctorate">
+    Doctorate
+</option>
+
+<option value="other">
+    Other
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRIVACY
+===================================================== -->
+
+<section class="privacy-card">
+
+
+<div class="privacy-icon">
+
+<i class="fa-solid fa-lock"></i>
+
+</div>
+
+
+<div>
+
+<h3>
+    Your Privacy Matters
+</h3>
+
+<p>
+    Your personal information is used to create
+    and protect your AFRIORA account. It is not
+    automatically shown to other members.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MESSAGE
+===================================================== -->
+
+<p
+    id="message"
+    class="form-message"
+    aria-live="polite">
+</p>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="form-actions">
+
+
+<a
+    href="otp.html"
+    class="back-button">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back
+
+</a>
+
+
+<button
+    type="submit"
+    id="continueButton"
+    class="continue-button">
+
+<span>
+    Continue
+</span>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+
+</div>
+
+
+</form>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="page-footer">
+
+<p>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Your information is protected by AFRIORA.
+
+</p>
+
+</footer>
+
+
+</div>
+
+
+</main>
+
+
+
+<script src="profile-step1.js"></script>
+
+
+</body>
+
+</html>

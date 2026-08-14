@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AFRIORA — Connect. Match. Create. Celebrate."
+    >
+
+    <title>AFRIORA | Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================================
+         MOBILE OVERLAY
+    ========================================== -->
+
+    <div id="overlay"></div>
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside id="sidebar">
+
+        <!-- BRAND -->
+
+        <div class="logo-area">
+
+            <a href="dashboard.html" class="brand">
+
+                <img
+                    src="images/logo.png"
+                    class="logo"
+                    alt="AFRIORA logo"
+                >
+
+                <div class="brand-text">
+
+                    <h2>AFRIORA</h2>
+
+                    <p>
+                        Connect. Match. Create. Celebrate.
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+
+            <ul>
+
+                <li class="active">
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="discover.html">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>Discover</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="create.html">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Create</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="matches.html">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Matches</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="messages.html">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>Messages</span>
+
+                        <span
+                            class="nav-badge"
+                            id="sidebarMessageBadge"
+                        >
+                            0
+                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="events.html">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Events</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="ai-assistant.html">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>AI Assistant</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="premium.html">
+                        <i class="fa-solid fa-crown"></i>
+                        <span>Premium</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- SECONDARY NAVIGATION -->
+
+        <nav
+            class="sidebar-secondary"
+            aria-label="Account navigation"
+        >
+
+            <ul>
+
+                <li>
+                    <a href="profile.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="notifications.html">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>Notifications</span>
+
+                        <span
+                            class="nav-badge"
+                            id="sidebarNotificationBadge"
+                        >
+                            0
+                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="support.html">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>Support</span>
+                    </a>
+                </li>
+
+
+                <li id="logoutBtn">
+                    <a href="#">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <span>
+                AFRIORA
+            </span>
+
+            <small>
+                Connect. Match. Create. Celebrate.
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN APPLICATION AREA
+    ========================================== -->
+
+    <div class="main">
+
+
+        <!-- =====================================
+             TOP HEADER
+        ====================================== -->
+
+        <header class="dashboard-header">
+
+            <div class="header-left">
+
+                <button
+                    type="button"
+                    id="menuBtn"
+                    class="menu-btn"
+                    aria-label="Open navigation"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+
+                <div class="page-heading">
+
+                    <span>
+                        AFRIORA
+                    </span>
+
+                    <h1>
+                        Home
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="searchMembers"
+                    placeholder="Search people, events..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- HEADER RIGHT -->
+
+            <div class="header-right">
+
+
+                <!-- AI -->
+
+                <a
+                    href="ai-assistant.html"
+                    class="header-icon"
+                    aria-label="AFRIORA AI"
+                    title="AFRIORA AI"
+                >
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                </a>
+
+
+                <!-- NOTIFICATIONS -->
+
+                <a
+                    href="notifications.html"
+                    class="header-icon"
+                    aria-label="Notifications"
+                >
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span
+                        class="badge"
+                        id="notificationBadge"
+                        hidden
+                    >
+                        0
+                    </span>
+
+                </a>
+
+
+                <!-- MESSAGES -->
+
+                <a
+                    href="messages.html"
+                    class="header-icon"
+                    aria-label="Messages"
+                >
+
+                    <i class="fa-solid fa-comments"></i>
+
+                    <span
+                        class="badge"
+                        id="messageBadge"
+                        hidden
+                    >
+                        0
+                    </span>
+
+                </a>
+
+
+                <!-- CURRENT USER -->
+
+                <a
+                    href="profile.html"
+                    class="user-box"
+                >
+
+                    <img
+                        src="images/default-profile.png"
+                        class="user-photo"
+                        id="currentUserPhoto"
+                        alt="Your profile photo"
+                    >
+
+
+                    <div class="user-info">
+
+                        <h4 id="currentUserName">
+                            User
+                        </h4>
+
+                        <p id="currentUserStatus">
+                            Member
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             DASHBOARD CONTENT
+        ====================================== -->
+
+        <main class="dashboard-content">
+
+
+            <!-- =================================
+                 WELCOME
+            ================================== -->
+
+            <section class="welcome-card">
+
+                <div class="welcome-user">
+
+                    <span class="eyebrow">
+                        AFRIORA
+                    </span>
+
+
+                    <h2>
+
+                        Welcome back,
+
+                        <span id="welcomeUserName">
+                            there
+                        </span>
+
+                        👋
+
+                    </h2>
+
+
+                    <p id="welcomeMessage">
+
+                        Discover people, conversations and
+                        communities that matter to you.
+
+                    </p>
+
+
+                    <!-- VERIFICATION STATUS -->
+
+                    <div class="verification-status">
+
+                        <span
+                            class="verified-badge"
+                            id="emailVerificationStatus"
+                        >
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            Email verified
+
+                        </span>
+
+
+                        <span
+                            class="verified-badge"
+                            id="phoneVerificationStatus"
+                        >
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            Phone verified
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MEMBERSHIP -->
+
+                <div class="subscription-status">
+
+                    <span class="subscription-label">
+                        Current plan
+                    </span>
+
+
+                    <h3 id="subscriptionPlan">
+                        Free
+                    </h3>
+
+
+                    <p>
+                        Explore AFRIORA and discover more connections.
+                    </p>
+
+
+                    <a
+                        href="premium.html"
+                        class="primary-action"
+                    >
+                        Explore Premium
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 QUICK STATS
+            ================================== -->
+
+            <section
+                class="stats-grid"
+                aria-label="Account statistics"
+            >
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Matches
+                        </span>
+
+                        <strong id="matchCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Messages
+                        </span>
+
+                        <strong id="messageCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Followers
+                        </span>
+
+                        <strong id="followerCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Events
+                        </span>
+
+                        <strong id="eventCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- =================================
+                 MAIN DASHBOARD GRID
+            ================================== -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- =============================
+                     LEFT / MAIN COLUMN
+                ============================== -->
+
+                <div class="dashboard-main-column">
+
+
+                    <!-- PROFILE COMPLETION -->
+
+                    <section class="dashboard-card profile-progress">
+
+                        <div class="section-title">
+
+                            <div>
+
+                                <span class="section-eyebrow">
+                                    Your profile
+                                </span>
+
+                                <h2>
+                                    Profile strength
+                                </h2>
+
+                            </div>
+
+
+                            <strong id="completionPercent">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div
+                                class="progress-fill"
+                                id="profileProgress"
+                                style="width: 0%;"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="profile-completion-footer">
+
+                            <p id="profileCompletionMessage">
+                                Complete your profile to improve your recommendations.
+                            </p>
+
+
+                            <a href="profile.html">
+                                Complete profile
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+
+                        <ul
+                            class="completion-list"
+                            id="completionList"
+                        >
+
+                            <li class="complete">
+                                <i class="fa-solid fa-check"></i>
+                                Basic information
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-circle"></i>
+                                Profile photos
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-circle"></i>
+                                Interests
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-circle"></i>
+                                Dating preferences
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-circle"></i>
+                                Verification
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+
+
+                    <!-- RECOMMENDED PEOPLE -->
+
+                    <section class="dashboard-card matches-section">
+
+                        <div class="section-title">
+
+                            <div>
+
+                                <span class="section-eyebrow">
+                                    Discover
+                                </span>
+
+                                <h2>
+                                    Recommended for you
+                                </h2>
+
+                            </div>
+
+
+                            <a href="discover.html">
+                                View all
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            id="matchesContainer"
+                            class="matches-container"
+                        >
+                        </div>
+
+
+                        <div
+                            id="emptyMatches"
+                            class="empty-state"
+                            hidden
+                        >
+
+                            <div class="empty-icon">
+
+                                <i class="fa-solid fa-heart"></i>
+
+                            </div>
+
+
+                            <h3>
+                                Your recommendations are coming together.
+                            </h3>
+
+
+                            <p>
+                                Complete your profile and preferences
+                                to receive better recommendations.
+                            </p>
+
+
+                            <a href="discover.html">
+                                Discover people
+                            </a>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- UPCOMING EVENTS -->
+
+                    <section class="dashboard-card events-section">
+
+                        <div class="section-title">
+
+                            <div>
+
+                                <span class="section-eyebrow">
+                                    Community
+                                </span>
+
+                                <h2>
+                                    Upcoming events
+                                </h2>
+
+                            </div>
+
+
+                            <a href="events.html">
+                                View all
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            id="eventsContainer"
+                            class="events-container"
+                        >
+                        </div>
+
+
+                        <div
+                            id="emptyEvents"
+                            class="empty-state"
+                            hidden
+                        >
+
+                            <div class="empty-icon">
+
+                                <i class="fa-solid fa-calendar-days"></i>
+
+                            </div>
+
+
+                            <h3>
+                                No upcoming events yet.
+                            </h3>
+
+
+                            <p>
+                                Discover events and communities around you.
+                            </p>
+
+
+                            <a href="events.html">
+                                Explore events
+                            </a>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- RECENT ACTIVITY -->
+
+                    <section class="dashboard-card activity-section">
+
+                        <div class="section-title">
+
+                            <div>
+
+                                <span class="section-eyebrow">
+                                    Activity
+                                </span>
+
+                                <h2>
+                                    Recent activity
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="activityList">
+
+                            <div class="empty-preview">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                <p>
+                                    No recent activity
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+
+                <!-- =============================
+                     RIGHT COLUMN
+                ============================== -->
+
+                <aside class="dashboard-side-content">
+
+
+                    <!-- NOTIFICATIONS -->
+
+                    <section class="dashboard-card">
+
+                        <div class="section-title">
+
+                            <h2>
+                                Notifications
+                            </h2>
+
+
+                            <a href="notifications.html">
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            id="notificationList"
+                            class="notification-list"
+                        >
+
+                            <div class="empty-preview">
+
+                                <i class="fa-solid fa-bell-slash"></i>
+
+                                <p>
+                                    No new notifications
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- MESSAGES -->
+
+                    <section class="dashboard-card">
+
+                        <div class="section-title">
+
+                            <h2>
+                                Messages
+                            </h2>
+
+
+                            <a href="messages.html">
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            id="messageList"
+                            class="message-list"
+                        >
+
+                            <div class="empty-preview">
+
+                                <i class="fa-solid fa-comments"></i>
+
+                                <p>
+                                    No recent messages
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- AI ASSISTANT -->
+
+                    <section class="dashboard-card ai-card">
+
+                        <div class="ai-icon">
+
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        </div>
+
+
+                        <span class="section-eyebrow">
+                            AFRIORA AI
+                        </span>
+
+
+                        <h2>
+                            Need a little help?
+                        </h2>
+
+
+                        <p>
+                            Improve your profile, start a conversation,
+                            translate a message or get dating guidance.
+                        </p>
+
+
+                        <a href="ai-assistant.html">
+                            Open AI Assistant
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </section>
+
+
+
+                    <!-- PREMIUM -->
+
+                    <section class="dashboard-card premium-box">
+
+                        <div class="premium-icon">
+
+                            <i class="fa-solid fa-crown"></i>
+
+                        </div>
+
+
+                        <span class="section-eyebrow">
+                            PREMIUM
+                        </span>
+
+
+                        <h2>
+                            Get more from AFRIORA
+                        </h2>
+
+
+                        <p>
+                            Unlock advanced discovery,
+                            more likes, boosts and enhanced features.
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Advanced filters
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                More likes
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Profile boosts
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Advanced AI features
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="premium.html"
+                            class="premium-button"
+                        >
+                            Explore Premium
+                        </a>
+
+                    </section>
+
+
+
+                    <!-- SAFETY -->
+
+                    <section class="dashboard-card safety-card">
+
+                        <div class="section-title">
+
+                            <h2>
+
+                                <i class="fa-solid fa-shield-halved"></i>
+
+                                Safety
+
+                            </h2>
+
+                        </div>
+
+
+                        <p>
+                            Your safety matters on AFRIORA.
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Report suspicious accounts
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Block unwanted contact
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Control your privacy
+                            </li>
+
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Access the Safety Center
+                            </li>
+
+                        </ul>
+
+
+                        <a href="safety.html">
+                            Safety Center
+                        </a>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+
+
+            <!-- =================================
+                 QUICK ACTIONS
+            ================================== -->
+
+            <section class="quick-actions-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            Shortcuts
+                        </span>
+
+                        <h2>
+                            Quick actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a
+                        href="discover.html"
+                        class="quick-action-card"
+                    >
+
+                        <i class="fa-solid fa-compass"></i>
+
+                        <span>
+                            Discover people
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="create.html"
+                        class="quick-action-card"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        <span>
+                            Create post
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="events.html"
+                        class="quick-action-card"
+                    >
+
+                        <i class="fa-solid fa-calendar-plus"></i>
+
+                        <span>
+                            Find events
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="messages.html"
+                        class="quick-action-card"
+                    >
+
+                        <i class="fa-solid fa-comments"></i>
+
+                        <span>
+                            Open messages
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="profile.html"
+                        class="quick-action-card"
+                    >
+
+                        <i class="fa-solid fa-user-pen"></i>
+
+                        <span>
+                            Edit profile
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="settings.html"
+                        class="quick-action-card"
+                    >
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                        <span>
+                            Preferences
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 MATCH CARD TEMPLATE
+            ================================== -->
+
+            <template id="matchTemplate">
+
+                <article class="match-card">
+
+                    <div class="match-image-wrapper">
+
+                        <img
+                            src="images/default-profile.png"
+                            class="match-image"
+                            alt="Profile"
+                        >
+
+                        <span class="online-indicator"></span>
+
+                    </div>
+
+
+                    <div class="match-info">
+
+                        <div class="match-heading">
+
+                            <h3 class="match-name">
+                                User Name
+                            </h3>
+
+                            <span class="match-age">
+                                25
+                            </span>
+
+                        </div>
+
+
+                        <p class="match-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span class="match-city">
+                                City
+                            </span>
+
+                        </p>
+
+
+                        <div class="match-verification">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            Verified
+
+                        </div>
+
+
+                        <div class="compatibility-box">
+
+                            <span>
+                                Compatibility
+                            </span>
+
+                            <strong class="compatibility">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="match-actions">
+
+                            <button
+                                type="button"
+                                class="like-btn"
+                                aria-label="Like profile"
+                            >
+
+                                <i class="fa-solid fa-heart"></i>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="message-btn"
+                                aria-label="Message user"
+                            >
+
+                                <i class="fa-solid fa-message"></i>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="view-profile-btn"
+                                aria-label="View profile"
+                            >
+
+                                View profile
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </template>
+
+
+
+            <!-- =================================
+                 EVENT TEMPLATE
+            ================================== -->
+
+            <template id="eventTemplate">
+
+                <article class="event-card">
+
+                    <img
+                        src="images/event-placeholder.jpg"
+                        class="event-image"
+                        alt="Event"
+                    >
+
+
+                    <div class="event-info">
+
+                        <span class="event-category">
+                            Community
+                        </span>
+
+
+                        <h3 class="event-name">
+                            Event name
+                        </h3>
+
+
+                        <p class="event-date">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            Event date
+
+                        </p>
+
+
+                        <p class="event-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Event location
+
+                        </p>
+
+
+                        <a href="events.html">
+                            View event
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </template>
+
+
+
+            <!-- =================================
+                 NOTIFICATION TEMPLATE
+            ================================== -->
+
+            <template id="notificationTemplate">
+
+                <div class="notification-item">
+
+                    <div class="notification-icon">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                    </div>
+
+
+                    <div class="notification-content">
+
+                        <h4 class="notification-title">
+                            Notification
+                        </h4>
+
+
+                        <p class="notification-text">
+                            Notification details
+                        </p>
+
+
+                        <span class="notification-time">
+                            Just now
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </template>
+
+
+
+            <!-- =================================
+                 MESSAGE TEMPLATE
+            ================================== -->
+
+            <template id="messageTemplate">
+
+                <a
+                    href="messages.html"
+                    class="message-item"
+                >
+
+                    <img
+                        src="images/default-profile.png"
+                        class="message-photo"
+                        alt="User"
+                    >
+
+
+                    <div class="message-content">
+
+                        <h4 class="message-name">
+                            Name
+                        </h4>
+
+
+                        <p class="message-text">
+                            Message preview
+                        </p>
+
+
+                        <span class="message-time">
+                            Just now
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </template>
+
+
+
+            <!-- =================================
+                 ACTIVITY TEMPLATE
+            ================================== -->
+
+            <template id="activityTemplate">
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="activity-text">
+                            Activity
+                        </p>
+
+
+                        <span class="activity-date">
+                            Today
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </template>
+
+
+
+            <!-- =================================
+                 FOOTER
+            ================================== -->
+
+            <footer class="dashboard-footer">
+
+                <div class="footer-brand">
+
+                    <h3>
+                        AFRIORA
+                    </h3>
+
+
+                    <p>
+                        Connect. Match. Create. Celebrate.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="safety.html">
+                        Safety
+                    </a>
+
+
+                    <a href="privacy.html">
+                        Privacy
+                    </a>
+
+
+                    <a href="terms.html">
+                        Terms
+                    </a>
+
+
+                    <a href="community-guidelines.html">
+                        Community Guidelines
+                    </a>
+
+
+                    <a href="support.html">
+                        Support
+                    </a>
+
+                </div>
+
+
+                <div class="copyright">
+
+                    <p>
+                        © 2026 AFRIORA. All rights reserved.
+                    </p>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

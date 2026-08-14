@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Ghana Connect Posts</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Posts CSS -->
+    <link
+        rel="stylesheet"
+        href="posts.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <header class="posts-header">
+
+        <a
+            href="dashboard.html"
+            class="back-btn"
+            id="backToDiscover">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            <span>Back</span>
+
+        </a>
+
+
+        <div class="page-title">
+            Ghana Connect Posts
+        </div>
+
+
+        <div class="user-badge">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <span id="topUserName">
+                Member
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="posts-container">
+
+
+        <!-- =================================================
+             CREATE POST
+        ================================================== -->
+
+        <section class="create-post-card">
+
+            <div class="create-header">
+
+                <img
+                    id="currentUserPhoto"
+                    src="images/default-profile.png"
+                    alt="Your profile photo">
+
+                <input
+                    id="postInput"
+                    class="create-input"
+                    type="text"
+                    maxlength="1000"
+                    placeholder="Share something with Ghana Connect...">
+
+            </div>
+
+
+            <!-- MEDIA PREVIEW -->
+
+            <div
+                class="post-preview"
+                id="postPreview">
+
+                <img
+                    id="imagePreview"
+                    alt="Selected image">
+
+                <video
+                    id="videoPreview"
+                    controls
+                    style="display:none;">
+                </video>
+
+
+                <button
+                    type="button"
+                    class="remove-media"
+                    id="removeMedia"
+                    aria-label="Remove media">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- POST OPTIONS -->
+
+            <div class="post-options">
+
+                <button
+                    type="button"
+                    class="photo-btn"
+                    id="photoBtn">
+
+                    <i class="fa-solid fa-image"></i>
+
+                    <span>Photo</span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="video-btn"
+                    id="videoBtn">
+
+                    <i class="fa-solid fa-video"></i>
+
+                    <span>Video</span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="publish-btn"
+                    id="publishBtn">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    <span>Post</span>
+
+                </button>
+
+            </div>
+
+
+            <input
+                type="file"
+                id="postImage"
+                class="hidden-file"
+                accept="image/*">
+
+
+            <input
+                type="file"
+                id="postVideo"
+                class="hidden-file"
+                accept="video/*">
+
+        </section>
+
+
+        <!-- =================================================
+             MESSAGE
+        ================================================== -->
+
+        <div
+            id="pageMessage"
+            class="page-message">
+        </div>
+
+
+        <!-- =================================================
+             POSTS
+        ================================================== -->
+
+        <section
+            id="postsList"
+            class="posts-list">
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="posts.js"></script>
+
+</body>
+</html>

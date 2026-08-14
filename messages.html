@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Afriora | Messages</title>
+
+    <link
+        rel="stylesheet"
+        href="messages.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="messages-page">
+
+
+    <!-- =========================================
+         TOP HEADER
+    ========================================== -->
+
+    <header class="messages-header">
+
+
+        <a
+            href="dashboard.html"
+            class="header-action">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            <span>Back</span>
+
+        </a>
+
+
+        <div class="header-title">
+
+            <i class="fa-solid fa-comments"></i>
+
+            <span>Messages</span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="header-action"
+            id="searchMessagesBtn">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span>Search</span>
+
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN MESSAGES AREA
+    ========================================== -->
+
+    <main class="messages-container">
+
+
+        <!-- =====================================
+             CONVERSATIONS
+        ====================================== -->
+
+        <aside class="conversation-panel">
+
+
+            <div class="conversation-top">
+
+
+                <div>
+
+                    <h2>
+                        Chats
+                    </h2>
+
+                    <span id="conversationCount">
+                        0 conversations
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="small-icon-button"
+                    id="newMessageBtn"
+                    title="New message">
+
+                    <i class="fa-solid fa-pen"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- SEARCH -->
+
+            <div
+                class="message-search"
+                id="messageSearchBox"
+                style="display:none;">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="conversationSearch"
+                    placeholder="Search chats...">
+
+            </div>
+
+
+
+            <!-- CONVERSATION LIST -->
+
+            <div
+                id="conversationList"
+                class="conversation-list">
+
+
+                <div class="empty-conversations">
+
+                    <div class="empty-icon">
+
+                        <i class="fa-regular fa-comments"></i>
+
+                    </div>
+
+
+                    <h3>
+                        No chats yet
+                    </h3>
+
+
+                    <p>
+                        Start a conversation with someone you connect with.
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="small-action-button"
+                        id="startChatBtn">
+
+                        <i class="fa-solid fa-message"></i>
+
+                        <span>Start Chat</span>
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =====================================
+             CHAT AREA
+        ====================================== -->
+
+        <section class="chat-panel">
+
+
+            <!-- CHAT HEADER -->
+
+            <div
+                id="chatHeader"
+                class="chat-header">
+
+
+                <div class="chat-user-info">
+
+
+                    <div
+                        class="chat-user-photo"
+                        id="chatUserPhoto">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2 id="chatUserName">
+                            Select a chat
+                        </h2>
+
+
+                        <span id="chatUserStatus">
+                            Choose a conversation to start messaging
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CHAT OPTIONS -->
+
+                <button
+                    type="button"
+                    class="small-icon-button"
+                    id="chatOptionsBtn"
+                    title="Chat options">
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 CHAT MESSAGES
+            ================================== -->
+
+            <div
+                id="messageList"
+                class="message-list">
+
+
+                <div class="no-chat-selected">
+
+
+                    <div class="empty-icon">
+
+                        <i class="fa-regular fa-comment-dots"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Your messages
+                    </h3>
+
+
+                    <p>
+                        Select a conversation to view your messages.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 MESSAGE COMPOSER
+            ================================== -->
+
+            <div
+                id="messageComposer"
+                class="message-composer"
+                style="display:none;">
+
+
+                <!-- ATTACHMENT -->
+
+                <button
+                    type="button"
+                    class="composer-icon"
+                    id="attachMessageBtn"
+                    title="Attach">
+
+                    <i class="fa-solid fa-paperclip"></i>
+
+                </button>
+
+
+                <!-- MESSAGE INPUT -->
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    maxlength="2000"
+                    placeholder="Write a message...">
+
+
+                <!-- SEND -->
+
+                <button
+                    type="button"
+                    class="send-message-button"
+                    id="sendMessageBtn"
+                    title="Send">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                    <span>Send</span>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================
+     PAGE MESSAGE
+========================================== -->
+
+<div
+    id="pageMessage"
+    class="page-message">
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="messages.js"></script>
+
+
+</body>
+
+</html>

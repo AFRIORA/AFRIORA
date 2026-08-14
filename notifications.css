@@ -1,0 +1,380 @@
+/* ==========================================
+GHANA CONNECT
+NOTIFICATIONS PAGE CSS
+========================================== */
+
+
+/* =========================
+GLOBAL RESET
+========================= */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:
+"Segoe UI",
+Arial,
+sans-serif;
+
+}
+
+
+
+body{
+
+
+background:
+
+linear-gradient(
+135deg,
+#f8fafc,
+#eef2f7
+);
+
+
+min-height:100vh;
+
+color:#1f2937;
+
+
+}
+
+
+
+
+
+/* =========================
+MAIN CONTAINER
+========================= */
+
+
+.page-container{
+
+
+width:90%;
+
+max-width:900px;
+
+margin:40px auto;
+
+
+}
+
+
+
+
+
+/* =========================
+HEADER
+========================= */
+
+
+header{
+
+
+background:white;
+
+padding:25px 30px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.12);
+
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:30px;
+
+
+}
+
+
+
+
+header h1{
+
+
+color:#006B3F;
+
+font-size:30px;
+
+
+}
+
+
+
+header a{
+
+
+text-decoration:none;
+
+color:#006B3F;
+
+font-weight:bold;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+
+}
+
+
+
+header a:hover{
+
+
+color:#CE1126;
+
+
+}
+
+
+
+
+
+/* =========================
+NOTIFICATION BOX
+========================= */
+
+
+.notification-box{
+
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+
+}
+
+
+
+
+
+/* =========================
+NOTIFICATION CARD
+========================= */
+
+
+.notification-card{
+
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.08);
+
+
+
+display:flex;
+
+align-items:center;
+
+
+gap:20px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+
+.notification-card:hover{
+
+
+transform:
+
+translateY(-5px);
+
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+ICON
+========================= */
+
+
+.notification-card > i{
+
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+background:#e8f5e9;
+
+
+color:#006B3F;
+
+
+font-size:25px;
+
+
+}
+
+
+
+
+
+/* =========================
+TEXT
+========================= */
+
+
+.notification-card h3{
+
+
+font-size:20px;
+
+margin-bottom:8px;
+
+color:#1f2937;
+
+
+}
+
+
+
+.notification-card p{
+
+
+color:#6b7280;
+
+font-size:15px;
+
+margin-bottom:5px;
+
+
+}
+
+
+
+.notification-card span{
+
+
+color:#CE1126;
+
+font-size:13px;
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+MOBILE RESPONSIVE
+========================= */
+
+
+@media(max-width:600px){
+
+
+
+.page-container{
+
+
+width:95%;
+
+
+}
+
+
+
+header{
+
+
+flex-direction:column;
+
+gap:15px;
+
+align-items:flex-start;
+
+
+}
+
+
+
+header h1{
+
+
+font-size:24px;
+
+
+}
+
+
+
+
+.notification-card{
+
+
+align-items:flex-start;
+
+
+}
+
+
+
+.notification-card > i{
+
+
+width:50px;
+
+height:50px;
+
+
+}
+
+
+
+}

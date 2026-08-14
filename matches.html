@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ghana Connect | Match Preferences</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+:root{
+--green:#006B3F;
+--gold:#FCD116;
+--red:#CE1126;
+--light:#f4f6f8;
+--white:#ffffff;
+}
+
+body{
+background:var(--light);
+padding:20px;
+}
+
+.top-navigation{
+
+max-width:900px;
+margin:0 auto 20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+#backBtn{
+
+background:white;
+border:none;
+padding:12px 24px;
+border-radius:30px;
+cursor:pointer;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+#backBtn:hover{
+
+background:var(--gold);
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:bold;
+color:var(--green);
+
+}
+
+.container{
+
+max-width:900px;
+margin:auto;
+
+background:white;
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+}
+
+h1{
+
+color:var(--green);
+
+margin-bottom:10px;
+
+}
+
+.description{
+
+color:#666;
+
+margin-bottom:30px;
+
+}
+
+.section{
+
+margin-bottom:25px;
+
+}
+
+.section label{
+
+display:block;
+
+font-weight:bold;
+
+margin-bottom:10px;
+
+color:#333;
+
+}
+
+select,
+input{
+
+width:100%;
+
+padding:14px;
+
+border:1px solid #ccc;
+
+border-radius:12px;
+
+font-size:16px;
+
+}
+
+.range{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+}
+
+.saveBtn{
+
+width:100%;
+
+margin-top:20px;
+
+padding:16px;
+
+background:var(--green);
+
+color:white;
+
+border:none;
+
+border-radius:30px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+.saveBtn:hover{
+
+background:#005230;
+
+}
+
+.success{
+
+margin-top:20px;
+
+color:green;
+
+font-weight:bold;
+
+display:none;
+
+}
+
+@media(max-width:700px){
+
+.range{
+
+grid-template-columns:1fr;
+
+}
+
+.container{
+
+padding:20px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-navigation">
+
+<button id="backBtn">
+
+← Back
+
+</button>
+
+<div class="logo">
+
+GHANA CONNECT
+
+</div>
+
+</div>
+
+<div class="container">
+
+<h1>
+
+Match Preferences
+
+</h1>
+
+<p class="description">
+
+Choose the type of partner you would like Ghana Connect to recommend.
+
+</p>
+
+<div class="section">
+
+<label>
+
+Looking For
+
+</label>
+
+<select id="lookingFor">
+
+<option>Male</option>
+
+<option>Female</option>
+
+</select>
+
+</div>
+
+<div class="section">
+
+<label>
+
+Relationship Goal
+
+</label>
+
+<select id="relationshipGoal">
+
+<option>Marriage</option>
+
+<option>Serious Relationship</option>
+
+<option>Friendship</option>
+
+<option>Dating</option>
+
+</select>
+
+</div>
+
+<div class="section">
+
+<label>
+
+Preferred Age Range
+
+</label>
+
+<div class="range">
+
+<input
+type="number"
+id="minAge"
+placeholder="Minimum Age">
+
+<input
+type="number"
+id="maxAge"
+placeholder="Maximum Age">
+
+</div>
+
+</div>
+
+<div class="section">
+
+<label>
+
+Preferred Region
+
+</label>
+
+<select id="preferredRegion">
+
+<option>Any Region</option>
+
+<option>Greater Accra</option>
+
+<option>Ashanti</option>
+
+<option>Central</option>
+
+<option>Eastern</option>
+
+<option>Western</option>
+
+<option>Western North</option>
+
+<option>Volta</option>
+
+<option>Oti</option>
+
+<option>Northern</option>
+
+<option>North East</option>
+
+<option>Savannah</option>
+
+<option>Upper East</option>
+
+<option>Upper West</option>
+
+<option>Bono</option>
+
+<option>Bono East</option>
+
+<option>Ahafo</option>
+
+</select>
+
+</div>
+
+<div class="section">
+
+<label>
+
+Preferred Languages
+
+</label>
+
+<input
+type="text"
+id="languages"
+placeholder="Example: Twi, English">
+
+</div>
+
+<div class="section">
+
+<label>
+
+Preferred Interests
+
+</label>
+
+<input
+type="text"
+id="interests"
+placeholder="Example: Business, Travel, Music">
+
+</div>
+
+<button
+class="saveBtn"
+onclick="savePreferences()">
+
+Save Preferences
+
+</button>
+
+<div
+class="success"
+id="successMessage">
+
+Preferences saved successfully.
+
+</div>
+
+</div>
+
+<script>
+
+document
+.getElementById("backBtn")
+.onclick=function(){
+
+window.history.back();
+
+};
+
+function savePreferences(){
+
+const preferences={
+
+lookingFor:
+document.getElementById("lookingFor").value,
+
+relationshipGoal:
+document.getElementById("relationshipGoal").value,
+
+minAge:
+document.getElementById("minAge").value,
+
+maxAge:
+document.getElementById("maxAge").value,
+
+preferredRegion:
+document.getElementById("preferredRegion").value,
+
+languages:
+document.getElementById("languages").value,
+
+interests:
+document.getElementById("interests").value
+
+};
+
+/*
+
+REAL API
+
+POST /api/match-preferences
+
+Body:
+
+preferences
+
+*/
+
+console.log(preferences);
+
+document
+.getElementById("successMessage")
+.style.display="block";
+
+}
+
+</script>
+
+</body>
+
+</html>

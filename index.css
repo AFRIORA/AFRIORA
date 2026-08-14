@@ -1,0 +1,613 @@
+/* =========================================================
+   AFRIORA SPLASH PAGE
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --rose: #e8a0b8;
+    --pink: #d86b91;
+    --gold: #e8c47c;
+    --dark: #160b14;
+    --white: #ffffff;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+body {
+
+    overflow: hidden;
+
+    background:
+        var(--dark);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   SPLASH
+========================================================= */
+
+.splash {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+}
+
+
+.romance-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    opacity: 0;
+
+    transform: scale(1.05);
+
+    animation:
+        backgroundShow 20s infinite;
+
+}
+
+
+.image-one {
+
+    background-image:
+        url("assets/images/afriora-1.jpg");
+
+    animation-delay: 0s;
+
+}
+
+
+.image-two {
+
+    background-image:
+        url("assets/images/afriora-2.jpg");
+
+    animation-delay: 4s;
+
+}
+
+
+.image-three {
+
+    background-image:
+        url("assets/images/afriora-3.jpg");
+
+    animation-delay: 8s;
+
+}
+
+
+.image-four {
+
+    background-image:
+        url("assets/images/afriora-4.jpg");
+
+    animation-delay: 12s;
+
+}
+
+
+.image-five {
+
+    background-image:
+        url("assets/images/afriora-5.jpg");
+
+    animation-delay: 16s;
+
+}
+
+
+@keyframes backgroundShow {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(1.05);
+
+    }
+
+    8% {
+
+        opacity: 1;
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+    28% {
+
+        opacity: 0;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(10, 4, 9, .78),
+            rgba(20, 7, 15, .52),
+            rgba(10, 4, 9, .82)
+        );
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: .25;
+
+    z-index: 3;
+
+}
+
+
+.glow-one {
+
+    width: 280px;
+    height: 280px;
+
+    background:
+        var(--pink);
+
+    top: -100px;
+    left: -80px;
+
+}
+
+
+.glow-two {
+
+    width: 300px;
+    height: 300px;
+
+    background:
+        var(--gold);
+
+    bottom: -130px;
+    right: -100px;
+
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    bottom: -20px;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        var(--rose);
+
+    opacity: 0;
+
+    animation:
+        floatParticle
+        linear
+        infinite;
+
+}
+
+
+@keyframes floatParticle {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(.5);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: .7;
+
+    }
+
+    80% {
+
+        opacity: .4;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            scale(1);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(
+        90%,
+        650px
+    );
+
+    text-align: center;
+
+    color:
+        var(--white);
+
+}
+
+
+/* =========================================================
+   BRAND SYMBOL
+========================================================= */
+
+.brand-symbol {
+
+    width: 64px;
+    height: 64px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    backdrop-filter:
+        blur(10px);
+
+    box-shadow:
+        0 0 30px
+        rgba(216,107,145,.35);
+
+    animation:
+        heartPulse 2.2s infinite;
+
+}
+
+
+.brand-symbol i {
+
+    font-size: 25px;
+
+    color:
+        var(--rose);
+
+}
+
+
+@keyframes heartPulse {
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    font-size:
+        clamp(
+            42px,
+            9vw,
+            72px
+        );
+
+    font-weight: 800;
+
+    letter-spacing:
+        8px;
+
+    line-height: 1;
+
+    color:
+        var(--white);
+
+    text-shadow:
+        0 5px 30px
+        rgba(0,0,0,.5);
+
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.tagline {
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(
+            17px,
+            3vw,
+            23px
+        );
+
+    font-weight: 400;
+
+    color:
+        var(--gold);
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+
+    width:
+        min(
+            90%,
+            520px
+        );
+
+    margin:
+        18px auto 0;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.82);
+
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader {
+
+    width:
+        min(
+            260px,
+            75%
+        );
+
+    height: 3px;
+
+    margin:
+        34px auto 12px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.18);
+
+}
+
+
+.loading {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--rose),
+            var(--gold)
+        );
+
+    animation:
+        loadingProgress
+        4s
+        linear
+        forwards;
+
+}
+
+
+@keyframes loadingProgress {
+
+    from {
+
+        width: 0%;
+
+    }
+
+    to {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   LOADING TEXT
+========================================================= */
+
+.loading-text {
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(255,255,255,.55);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .logo {
+
+        letter-spacing: 5px;
+
+    }
+
+
+    .brand-symbol {
+
+        width: 56px;
+        height: 56px;
+
+    }
+
+
+    .message {
+
+        font-size: 14px;
+
+    }
+
+}

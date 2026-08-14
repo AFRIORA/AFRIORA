@@ -1,0 +1,1592 @@
+/* =========================================================
+   AFRIORA — PROFILE SETUP STEP 2
+   Premium Relationship Preferences UI
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --primary: #8b1e3f;
+    --primary-light: #ad3159;
+    --primary-dark: #64152d;
+
+    --gold: #d4a017;
+    --gold-light: #e7bd4a;
+
+    --bg: #0d080b;
+    --bg-soft: #160d12;
+
+    --card: rgba(25, 15, 21, 0.94);
+    --card-light: rgba(255, 255, 255, 0.035);
+
+    --white: #ffffff;
+    --soft-white: #f8f2f5;
+
+    --muted: #aa9aa3;
+    --muted-dark: #74666e;
+
+    --border: rgba(255, 255, 255, 0.10);
+    --border-hover: rgba(255, 255, 255, 0.20);
+
+    --input: rgba(255, 255, 255, 0.045);
+
+    --success: #55c98a;
+    --danger: #ff687c;
+
+    --shadow:
+        0 35px 90px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   HTML
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--white);
+
+    background:
+
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(139, 30, 63, 0.28),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(212, 160, 23, 0.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #0d080b,
+            #1b0d14 50%,
+            #0d080b
+        );
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding:
+        35px 18px 60px;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+
+    width: 100%;
+    max-width: 780px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BRAND HEADER
+========================================================= */
+
+.brand-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+
+.brand {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--gold);
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: 850;
+
+    letter-spacing: 4px;
+}
+
+
+.brand-icon {
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(139, 30, 63, 0.30);
+
+    border:
+        1px solid
+        rgba(212, 160, 23, 0.30);
+
+    color: var(--gold);
+
+    font-size: 13px;
+}
+
+
+.step-indicator {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--muted-dark);
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.step-indicator strong {
+
+    color: var(--gold);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-area {
+
+    margin-bottom: 35px;
+}
+
+
+.progress-label {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+.progress-label strong {
+
+    color: var(--gold);
+
+    font-weight: 700;
+}
+
+
+.progress-track {
+
+    width: 100%;
+
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.progress-fill {
+
+    width: 66.66%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--gold)
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(212, 160, 23, 0.25);
+}
+
+
+.progress-dots {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+}
+
+
+.progress-dots span {
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: var(--muted-dark);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.progress-dots .done {
+
+    color: var(--success);
+
+    border-color:
+        rgba(85, 201, 138, 0.35);
+
+    background:
+        rgba(85, 201, 138, 0.08);
+}
+
+
+.progress-dots .active {
+
+    color: white;
+
+    border-color:
+        rgba(212, 160, 23, 0.55);
+
+    background:
+        var(--primary);
+
+    box-shadow:
+        0 0 15px
+        rgba(139, 30, 63, 0.35);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    gap: 17px;
+
+    align-items: start;
+
+    margin-bottom: 25px;
+}
+
+
+.intro-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 30, 63, 0.45),
+            rgba(212, 160, 23, 0.10)
+        );
+
+    border:
+        1px solid
+        rgba(212, 160, 23, 0.25);
+
+    color: var(--gold);
+
+    font-size: 17px;
+}
+
+
+.eyebrow {
+
+    margin-bottom: 5px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.intro h1 {
+
+    max-width: 600px;
+
+    color: var(--white);
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+}
+
+
+.intro h1 span {
+
+    color: var(--gold);
+}
+
+
+.intro-text {
+
+    max-width: 600px;
+
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#stepTwoForm {
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    background:
+        var(--card);
+
+    box-shadow:
+        var(--shadow);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.form-card {
+
+    padding-bottom: 25px;
+
+    margin-bottom: 25px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.form-card.last {
+
+    border-bottom: none;
+
+    padding-bottom: 5px;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 19px;
+}
+
+
+.section-icon {
+
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(139, 30, 63, 0.22);
+
+    border:
+        1px solid
+        rgba(212, 160, 23, 0.18);
+
+    color: var(--gold);
+
+    font-size: 12px;
+}
+
+
+.section-header h2 {
+
+    color: var(--soft-white);
+
+    font-size: 14px;
+
+    font-weight: 750;
+}
+
+
+.section-header p {
+
+    margin-top: 2px;
+
+    color: var(--muted-dark);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+#stepTwoForm label {
+
+    color: var(--soft-white);
+
+    font-size: 10px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+textarea {
+
+    width: 100%;
+
+    min-height: 125px;
+
+    margin-top: 7px;
+
+    padding: 13px;
+
+    resize: vertical;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background:
+        var(--input);
+
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    transition:
+        border .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+textarea::placeholder {
+
+    color:
+        var(--muted-dark);
+}
+
+
+textarea:hover {
+
+    border-color:
+        var(--border-hover);
+}
+
+
+textarea:focus {
+
+    border-color:
+        rgba(212, 160, 23, 0.65);
+
+    background:
+        rgba(255, 255, 255, 0.065);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212, 160, 23, 0.06);
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.counter {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 3px;
+
+    margin-top: 5px;
+
+    color: var(--muted-dark);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   RELATIONSHIP CHOICES
+========================================================= */
+
+.choice-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.choice-card {
+
+    position: relative;
+
+    display: block;
+
+    padding: 16px 13px;
+
+    min-height: 105px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border .2s ease,
+        background .2s ease;
+}
+
+
+.choice-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(212, 160, 23, 0.35);
+}
+
+
+.choice-card input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.choice-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+}
+
+
+.choice-content > i {
+
+    margin-bottom: 4px;
+
+    color: var(--gold);
+
+    font-size: 15px;
+}
+
+
+.choice-content strong {
+
+    color: var(--soft-white);
+
+    font-size: 10px;
+}
+
+
+.choice-content small {
+
+    color: var(--muted-dark);
+
+    font-size: 8px;
+
+    line-height: 1.4;
+}
+
+
+.choice-check {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 10px;
+
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50%;
+
+    color: transparent;
+
+    font-size: 7px;
+}
+
+
+.choice-card:has(input:checked) {
+
+    border-color:
+        rgba(212, 160, 23, 0.65);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 30, 63, 0.35),
+            rgba(212, 160, 23, 0.07)
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+.choice-card:has(input:checked)
+.choice-check {
+
+    border-color:
+        var(--gold);
+
+    background:
+        var(--gold);
+
+    color:
+        #1b1016;
+}
+
+
+/* =========================================================
+   PREFERENCES
+========================================================= */
+
+.preference-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+.field {
+
+    min-width: 0;
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+}
+
+
+.field label {
+
+    display: block;
+
+    margin-bottom: 7px;
+}
+
+
+.select-wrapper {
+
+    position: relative;
+}
+
+
+.select-wrapper select {
+
+    width: 100%;
+
+    height: 44px;
+
+    padding:
+        0 38px 0 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    background:
+        var(--input);
+
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        border .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.select-wrapper select:hover {
+
+    border-color:
+        var(--border-hover);
+}
+
+
+.select-wrapper select:focus {
+
+    border-color:
+        rgba(212, 160, 23, 0.65);
+
+    background:
+        rgba(255, 255, 255, 0.065);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212, 160, 23, 0.06);
+}
+
+
+.select-wrapper i {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 13px;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--muted-dark);
+
+    font-size: 8px;
+
+    pointer-events: none;
+}
+
+
+.select-wrapper option {
+
+    background:
+        #21141b;
+
+    color:
+        white;
+}
+
+
+/* =========================================================
+   INTERESTS
+========================================================= */
+
+.interest-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+}
+
+
+.interest {
+
+    position: relative;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+
+.interest input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.interest span {
+
+    min-height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 9px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    transition:
+        border .2s ease,
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.interest span i {
+
+    color:
+        var(--muted-dark);
+
+    font-size: 10px;
+}
+
+
+.interest:hover span {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        rgba(212, 160, 23, 0.35);
+
+    color:
+        var(--soft-white);
+}
+
+
+.interest input:checked + span {
+
+    border-color:
+        rgba(212, 160, 23, 0.65);
+
+    background:
+        rgba(139, 30, 63, 0.35);
+
+    color:
+        white;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.16);
+}
+
+
+.interest input:checked + span i {
+
+    color:
+        var(--gold);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+#message {
+
+    min-height: 18px;
+
+    margin-top: 10px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    font-weight: 650;
+}
+
+
+#message.error {
+
+    color:
+        var(--danger);
+}
+
+
+#message.success {
+
+    color:
+        var(--success);
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.step-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back-btn {
+
+    height: 43px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding:
+        0 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color:
+        var(--muted);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 650;
+
+    transition:
+        all .2s ease;
+}
+
+
+.back-btn:hover {
+
+    color:
+        white;
+
+    border-color:
+        var(--border-hover);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   CONTINUE
+========================================================= */
+
+.step-buttons button {
+
+    min-width: 190px;
+
+    height: 43px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 750;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+
+.step-buttons button:hover {
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.08);
+
+    box-shadow:
+        0 10px 28px
+        rgba(139, 30, 63, 0.35);
+}
+
+
+.step-buttons button:active {
+
+    transform:
+        translateY(0);
+}
+
+
+.step-buttons button:disabled {
+
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 18px;
+
+    color:
+        var(--muted-dark);
+
+    font-size: 8px;
+
+    text-align: center;
+}
+
+
+.footer i {
+
+    color:
+        var(--success);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+
+        padding:
+            25px 14px 45px;
+    }
+
+
+    .choice-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .choice-card {
+
+        min-height:
+            82px;
+    }
+
+
+    .interest-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+    .page {
+
+        padding:
+            18px 10px 30px;
+    }
+
+
+    .brand-header {
+
+        margin-bottom:
+            23px;
+    }
+
+
+    .brand {
+
+        font-size:
+            16px;
+
+        letter-spacing:
+            3px;
+    }
+
+
+    .brand-icon {
+
+        width:
+            32px;
+
+        height:
+            32px;
+    }
+
+
+    .step-indicator {
+
+        font-size:
+            8px;
+    }
+
+
+    .intro {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            11px;
+
+        margin-bottom:
+            20px;
+    }
+
+
+    .intro-icon {
+
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            23px;
+    }
+
+
+    .intro-text {
+
+        font-size:
+            10px;
+    }
+
+
+    #stepTwoForm {
+
+        padding:
+            20px 15px;
+
+        border-radius:
+            17px;
+    }
+
+
+    .form-card {
+
+        padding-bottom:
+            22px;
+
+        margin-bottom:
+            22px;
+    }
+
+
+    .preference-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            13px;
+    }
+
+
+    .field.full {
+
+        grid-column:
+            auto;
+    }
+
+
+    .interest-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .step-buttons {
+
+        flex-direction:
+            column-reverse;
+
+        align-items:
+            stretch;
+    }
+
+
+    .back-btn,
+    .step-buttons button {
+
+        width:
+            100%;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .page {
+
+        padding:
+            13px 8px 25px;
+    }
+
+
+    #stepTwoForm {
+
+        padding:
+            18px 12px;
+    }
+
+
+    .brand {
+
+        font-size:
+            14px;
+
+        letter-spacing:
+            2px;
+    }
+
+
+    .brand-icon {
+
+        width:
+            29px;
+
+        height:
+            29px;
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            21px;
+    }
+
+
+    .interest-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .interest span {
+
+        justify-content:
+            flex-start;
+
+        padding-left:
+            14px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button,
+a,
+input,
+select,
+textarea {
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+
+    outline:
+        2px solid var(--gold);
+
+    outline-offset:
+        2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        scroll-behavior:
+            auto !important;
+
+        transition:
+            none !important;
+    }
+
+}

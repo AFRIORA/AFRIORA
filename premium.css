@@ -1,0 +1,619 @@
+```css
+/* ==========================================
+GHANA CONNECT PREMIUM CSS
+
+VERSION 1
+MEMBERSHIP SYSTEM
+FREE + PREMIUM PLANS
+PAYMENT READY DESIGN
+
+========================================== */
+
+
+/* =========================
+GLOBAL RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+
+
+:root{
+
+--green:#006B3F;
+
+--gold:#FCD116;
+
+--red:#CE1126;
+
+--dark:#1f2937;
+
+--gray:#6b7280;
+
+--light:#f5f7fb;
+
+--white:#ffffff;
+
+--shadow:
+0 10px 30px rgba(0,0,0,.12);
+
+--radius:25px;
+
+}
+
+
+
+/* =========================
+BODY
+========================= */
+
+body{
+
+background:
+
+linear-gradient(
+135deg,
+#f8fafc,
+#eef2f7
+);
+
+color:var(--dark);
+
+min-height:100vh;
+
+padding:30px;
+
+}
+
+
+
+/* =========================
+CONTAINER
+========================= */
+
+
+.premium-container{
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+
+
+/* =========================
+HEADER
+========================= */
+
+
+.premium-header{
+
+background:white;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+margin-bottom:30px;
+
+}
+
+
+
+.premium-header a{
+
+display:inline-block;
+
+text-decoration:none;
+
+color:var(--green);
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+}
+
+
+
+.premium-header h1{
+
+font-size:38px;
+
+color:var(--green);
+
+}
+
+
+
+.premium-header p{
+
+margin-top:10px;
+
+color:var(--gray);
+
+}
+
+
+
+/* =========================
+CURRENT ACCOUNT
+========================= */
+
+
+.current-plan{
+
+background:white;
+
+padding:25px;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow);
+
+margin-bottom:30px;
+
+text-align:center;
+
+}
+
+
+
+.current-plan h2{
+
+color:var(--green);
+
+margin-bottom:10px;
+
+}
+
+
+
+.current-plan span{
+
+font-weight:bold;
+
+color:var(--red);
+
+}
+
+
+
+/* =========================
+PLANS GRID
+========================= */
+
+
+.plans{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+/* =========================
+PLAN CARD
+========================= */
+
+
+.plan-card{
+
+background:white;
+
+border-radius:var(--radius);
+
+padding:30px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+transition:.3s;
+
+border-top:6px solid var(--green);
+
+}
+
+
+
+.plan-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.plan-card h2{
+
+color:var(--green);
+
+margin-bottom:15px;
+
+}
+
+
+
+.price{
+
+font-size:35px;
+
+font-weight:bold;
+
+color:var(--red);
+
+margin-bottom:20px;
+
+}
+
+
+
+.price small{
+
+font-size:15px;
+
+color:var(--gray);
+
+}
+
+
+
+/* =========================
+FEATURE LIST
+========================= */
+
+
+.plan-card ul{
+
+list-style:none;
+
+text-align:left;
+
+margin:20px 0;
+
+}
+
+
+
+.plan-card li{
+
+padding:10px;
+
+color:var(--gray);
+
+}
+
+
+
+.plan-card li i{
+
+color:var(--green);
+
+margin-right:10px;
+
+}
+
+
+
+/* =========================
+BUTTON
+========================= */
+
+
+.plan-button{
+
+display:block;
+
+background:var(--green);
+
+color:white;
+
+padding:14px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+
+.plan-button:hover{
+
+background:var(--gold);
+
+color:#111;
+
+}
+
+
+
+/* =========================
+POPULAR PLAN
+========================= */
+
+
+.popular{
+
+border-top:
+
+8px solid var(--gold);
+
+position:relative;
+
+}
+
+
+
+.popular::before{
+
+content:"MOST POPULAR";
+
+position:absolute;
+
+top:-18px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:var(--gold);
+
+padding:7px 20px;
+
+border-radius:20px;
+
+font-size:12px;
+
+font-weight:bold;
+
+}
+
+
+
+/* =========================
+BOOST SECTION
+PROFILE PROMOTION
+========================= */
+
+
+.boost-section{
+
+margin-top:35px;
+
+background:
+
+linear-gradient(
+135deg,
+var(--green),
+#008f55
+);
+
+color:white;
+
+padding:35px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+}
+
+
+
+.boost-section h2{
+
+margin-bottom:15px;
+
+font-size:30px;
+
+}
+
+
+
+.boost-options{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+
+
+.boost-card{
+
+background:white;
+
+color:var(--dark);
+
+padding:20px;
+
+border-radius:20px;
+
+}
+
+
+
+.boost-card h3{
+
+color:var(--green);
+
+}
+
+
+
+.boost-card button{
+
+margin-top:15px;
+
+padding:12px 25px;
+
+border:none;
+
+border-radius:30px;
+
+background:var(--gold);
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+/* =========================
+BUSINESS AD SECTION
+========================= */
+
+
+.business-section{
+
+margin-top:30px;
+
+background:white;
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+
+
+.business-section h2{
+
+color:var(--green);
+
+margin-bottom:15px;
+
+}
+
+
+
+.business-list{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:15px;
+
+}
+
+
+
+.business-list div{
+
+background:#f8fafc;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+
+@media(max-width:900px){
+
+
+.plans{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.boost-options{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.business-list{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+body{
+
+padding:15px;
+
+}
+
+
+
+.premium-header h1{
+
+font-size:28px;
+
+}
+
+
+
+.business-list{
+
+grid-template-columns:1fr;
+
+}
+
+
+
+}
+```

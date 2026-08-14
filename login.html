@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="AFRIORA secure login">
+
+<title>
+AFRIORA | Login
+</title>
+
+<link rel="stylesheet"
+href="login.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<main class="login-page">
+
+
+<section class="login-card">
+
+
+<!-- =====================================================
+     BRAND
+===================================================== -->
+
+<div class="brand">
+
+    <div class="brand-symbol">
+        ♥
+    </div>
+
+    <h1>
+        AFRIORA
+    </h1>
+
+    <p>
+        Connect Beyond Borders
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     HEADING
+===================================================== -->
+
+<div class="login-heading">
+
+    <h2>
+        Welcome Back
+    </h2>
+
+    <p>
+        Sign in to your AFRIORA account.
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     NORMAL LOGIN
+===================================================== -->
+
+<form
+    id="loginForm"
+    autocomplete="on">
+
+
+<!-- EMAIL / USERNAME -->
+
+<div class="form-group">
+
+    <label for="loginIdentifier">
+        Email or Username
+    </label>
+
+    <input
+        type="text"
+        id="loginIdentifier"
+        name="identifier"
+        placeholder="Enter email or username"
+        autocomplete="username"
+        required>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="form-group">
+
+
+    <div class="password-label">
+
+        <label for="loginPassword">
+            Password
+        </label>
+
+
+        <a href="forgot-password.html">
+            Forgot?
+        </a>
+
+    </div>
+
+
+    <div class="password-wrapper">
+
+        <input
+            type="password"
+            id="loginPassword"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required>
+
+
+        <button
+            type="button"
+            id="togglePassword"
+            class="icon-button"
+            aria-label="Show password">
+
+            <i class="fa-solid fa-eye"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- REMEMBER ME -->
+
+<div class="login-options">
+
+    <label>
+
+        <input
+            type="checkbox"
+            id="rememberMe">
+
+        <span>
+            Remember me
+        </span>
+
+    </label>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN LOGIN BUTTON
+===================================================== -->
+
+<button
+    type="submit"
+    id="loginSubmit"
+    class="login-submit">
+
+    <span class="button-icon">
+        <i class="fa-solid fa-right-to-bracket"></i>
+    </span>
+
+    <span>
+        Login
+    </span>
+
+</button>
+
+
+<!-- LOGIN RESULT -->
+
+<p
+    id="loginResult"
+    class="login-result"
+    aria-live="polite">
+</p>
+
+
+</form>
+
+
+<!-- =====================================================
+     SOCIAL LOGIN
+     UNDER MAIN LOGIN BUTTON
+===================================================== -->
+
+<div class="social-login">
+
+
+    <!-- DIVIDER -->
+
+    <div class="social-divider">
+
+        <span>
+            or continue with
+        </span>
+
+    </div>
+
+
+    <!-- GOOGLE -->
+
+    <button
+        type="button"
+        id="googleLogin"
+        class="social-login-btn google-btn">
+
+        <i class="fa-brands fa-google"></i>
+
+        <span>
+            Google
+        </span>
+
+    </button>
+
+
+    <!-- APPLE -->
+
+    <button
+        type="button"
+        id="appleLogin"
+        class="social-login-btn apple-btn">
+
+        <i class="fa-brands fa-apple"></i>
+
+        <span>
+            Apple
+        </span>
+
+    </button>
+
+
+</div>
+
+
+<!-- =====================================================
+     SECURITY
+===================================================== -->
+
+<div class="security-note">
+
+    <span class="security-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+    </span>
+
+    <div>
+
+        <strong>
+            Secure Login
+        </strong>
+
+        <p>
+            Your account information is protected.
+            Never share your password or verification codes.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     REGISTER
+===================================================== -->
+
+<div class="register-link">
+
+    <p>
+
+        Don't have an AFRIORA account?
+
+        <a href="register.html">
+            Create Account
+        </a>
+
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     BACK TO AFRIORA
+===================================================== -->
+
+<a
+    href="welcome.html"
+    class="back-link">
+
+    <i class="fa-solid fa-arrow-left"></i>
+
+    Back to AFRIORA
+
+</a>
+
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     LOGIN JAVASCRIPT
+===================================================== -->
+
+<script src="login.js"></script>
+
+</body>
+
+</html>

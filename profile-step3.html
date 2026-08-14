@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AFRIORA | Profile Setup Step 3</title>
+
+    <link
+        rel="stylesheet"
+        href="profile-step3.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <div class="container">
+
+
+        <!-- =================================================
+             BRAND
+        ================================================== -->
+
+        <div class="logo">
+
+            <span class="logo-mark">
+                <i class="fa-solid fa-heart"></i>
+            </span>
+
+            <span class="logo-name">
+                AFRIORA
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             STEP HEADER
+        ================================================== -->
+
+        <div class="step-title">
+
+            <span class="step-label">
+                STEP 3 OF 3
+            </span>
+
+            <h1>
+                Complete Your Profile
+            </h1>
+
+            <p>
+                Add your photos, review your information,
+                and finish setting up your profile.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <div class="progress-container">
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar step-three"
+                    style="width: 100%;"
+                ></div>
+
+            </div>
+
+            <div class="progress-labels">
+
+                <span>Basic Info</span>
+
+                <span>Preferences</span>
+
+                <span class="active">Complete</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MAIN FORM
+        ================================================== -->
+
+        <form id="stepThreeForm">
+
+
+            <!-- =================================================
+                 PROFILE PHOTOS
+            ================================================== -->
+
+            <section class="profile-section">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        <i class="fa-solid fa-camera"></i>
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Profile Photos
+                        </h2>
+
+                        <p>
+                            Add clear photos that represent you.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="photo-grid">
+
+
+                    <!-- PHOTO 1 -->
+
+                    <div class="photo-upload primary-photo">
+
+                        <img
+                            id="photo1Preview"
+                            src="images/default-profile.png"
+                            alt="Profile photo preview"
+                        >
+
+                        <label
+                            for="photo1"
+                            class="photo-button"
+                        >
+
+                            <i class="fa-solid fa-camera"></i>
+
+                            <span>
+                                Add Photo
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="photo1"
+                            accept="image/jpeg,image/png,image/webp"
+                        >
+
+                        <span class="photo-number">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <!-- PHOTO 2 -->
+
+                    <div class="photo-upload">
+
+                        <img
+                            id="photo2Preview"
+                            src="images/default-profile.png"
+                            alt="Second profile photo preview"
+                        >
+
+                        <label
+                            for="photo2"
+                            class="photo-button"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            <span>
+                                Add Photo
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="photo2"
+                            accept="image/jpeg,image/png,image/webp"
+                        >
+
+                        <span class="photo-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <!-- PHOTO 3 -->
+
+                    <div class="photo-upload">
+
+                        <img
+                            id="photo3Preview"
+                            src="images/default-profile.png"
+                            alt="Third profile photo preview"
+                        >
+
+                        <label
+                            for="photo3"
+                            class="photo-button"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            <span>
+                                Add Photo
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="photo3"
+                            accept="image/jpeg,image/png,image/webp"
+                        >
+
+                        <span class="photo-number">
+                            03
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="section-note">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    JPG, PNG or WebP. Clear, recent photos are recommended.
+
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE SUMMARY
+            ================================================== -->
+
+            <section class="profile-section">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Profile Summary
+                        </h2>
+
+                        <p>
+                            Review the information you've provided.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-box">
+
+
+                    <div class="review-item">
+
+                        <span class="review-label">
+                            Name
+                        </span>
+
+                        <strong id="reviewName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item">
+
+                        <span class="review-label">
+                            Location
+                        </span>
+
+                        <strong id="reviewRegion">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item">
+
+                        <span class="review-label">
+                            Relationship Goal
+                        </span>
+
+                        <strong id="reviewGoal">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="review-item review-full">
+
+                        <span class="review-label">
+                            Interests
+                        </span>
+
+                        <strong id="reviewInterests">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMMUNITY SAFETY
+            ================================================== -->
+
+            <section class="profile-section">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Safety & Community
+                        </h2>
+
+                        <p>
+                            A few final confirmations before you continue.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="rules">
+
+
+                    <label class="check-option">
+
+                        <input
+                            type="checkbox"
+                            id="agreeRules"
+                        >
+
+                        <span class="custom-check">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        <span class="check-text">
+
+                            I agree to follow AFRIORA's
+                            safety and community guidelines.
+
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-option">
+
+                        <input
+                            type="checkbox"
+                            id="agreeTruth"
+                        >
+
+                        <span class="custom-check">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                        <span class="check-text">
+
+                            I confirm that the information
+                            on my profile is accurate.
+
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE COMPLETION
+            ================================================== -->
+
+            <section class="profile-section completion-section">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Profile Completion
+                        </h2>
+
+                        <p>
+                            You're almost ready to discover meaningful connections.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="completion-wrapper">
+
+                    <div class="completion-top">
+
+                        <span>
+                            Profile progress
+                        </span>
+
+                        <strong id="completionText">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="completion-bar">
+
+                        <div
+                            id="completion"
+                            class="completion-fill"
+                            style="width: 0%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FORM MESSAGE
+            ================================================== -->
+
+            <p
+                id="message"
+                class="form-message"
+                aria-live="polite"
+            ></p>
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+            <div class="step-buttons">
+
+
+                <a
+                    href="profile-step2.html"
+                    class="back-btn"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    <span>
+                        Back
+                    </span>
+
+                </a>
+
+
+                <button
+                    type="submit"
+                    id="finishButton"
+                >
+
+                    <span>
+                        Finish Profile
+                    </span>
+
+                    <i class="fa-solid fa-check"></i>
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="page-footer">
+
+            <i class="fa-solid fa-lock"></i>
+
+            Your profile information is handled privately.
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="profile-step3.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1084 @@
+/* =========================================================
+   AFRIORA — LOGIN PAGE
+   Premium • Romantic • Clean • Responsive
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --afriora-red: #8b1e3f;
+    --afriora-red-light: #a82a52;
+
+    --afriora-gold: #d4a017;
+
+    --background: #10090d;
+
+    --card:
+        rgba(28, 17, 23, 0.94);
+
+    --white: #ffffff;
+
+    --soft-white:
+        #f3edf0;
+
+    --muted:
+        #b9aab2;
+
+    --border:
+        rgba(255, 255, 255, 0.12);
+
+    --input:
+        rgba(255, 255, 255, 0.055);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color:
+        var(--white);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(15, 7, 11, 0.88),
+            rgba(58, 17, 34, 0.78)
+        ),
+
+        url("assets/images/romantic-background.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px 18px;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+
+    width: 100%;
+
+    max-width: 410px;
+
+    padding: 32px 30px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.45);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+.brand-symbol {
+
+    width: 42px;
+
+    height: 42px;
+
+    margin:
+        0 auto 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(139, 30, 63, 0.25);
+
+    border:
+        1px solid
+        rgba(212, 160, 23, 0.35);
+
+    color:
+        var(--afriora-gold);
+
+    font-size: 19px;
+}
+
+
+.brand h1 {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color:
+        var(--afriora-gold);
+}
+
+
+.brand p {
+
+    margin-top: 3px;
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.login-heading {
+
+    text-align: center;
+
+    margin-bottom: 21px;
+}
+
+
+.login-heading h2 {
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+.login-heading p {
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SOCIAL LOGIN
+========================================================= */
+
+.social-login {
+
+    display: grid;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+}
+
+
+.social-button {
+
+    width: 100%;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 21px;
+
+    cursor: pointer;
+
+    font-family:
+        inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.social-button:hover {
+
+    transform:
+        translateY(-1px);
+}
+
+
+.social-button:active {
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   GOOGLE
+========================================================= */
+
+.google-button {
+
+    background:
+        #ffffff;
+
+    color:
+        #202124;
+
+    border:
+        1px solid #dddddd;
+}
+
+
+.google-button:hover {
+
+    background:
+        #f5f5f5;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   APPLE
+========================================================= */
+
+.apple-button {
+
+    background:
+        #050505;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid #333333;
+}
+
+
+.apple-button:hover {
+
+    background:
+        #151515;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   SOCIAL ICON
+========================================================= */
+
+.social-icon {
+
+    width: 22px;
+
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin:
+        18px 0;
+}
+
+
+.divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+}
+
+
+.divider p {
+
+    color:
+        #8f8088;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group {
+
+    margin-bottom: 17px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color:
+        var(--soft-white);
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input {
+
+    width: 100%;
+
+    height: 43px;
+
+    padding:
+        0 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background:
+        var(--input);
+
+    color:
+        var(--white);
+
+    font-family:
+        inherit;
+
+    font-size: 13px;
+
+    transition:
+        border 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+
+    color:
+        #8f8088;
+}
+
+
+.form-group input:hover {
+
+    border-color:
+        rgba(255, 255, 255, 0.20);
+}
+
+
+.form-group input:focus {
+
+    border-color:
+        rgba(212, 160, 23, 0.65);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212, 160, 23, 0.07);
+}
+
+
+/* =========================================================
+   PASSWORD LABEL
+========================================================= */
+
+.password-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.password-label a {
+
+    color:
+        var(--afriora-gold);
+
+    text-decoration: none;
+
+    font-size: 11px;
+}
+
+
+.password-label a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+/* =========================================================
+   PASSWORD WRAPPER
+========================================================= */
+
+.password-wrapper {
+
+    position:
+        relative;
+}
+
+
+.password-wrapper input {
+
+    padding-right:
+        42px;
+}
+
+
+/* =========================================================
+   SHOW PASSWORD BUTTON
+========================================================= */
+
+.icon-button {
+
+    position:
+        absolute;
+
+    top: 50%;
+
+    right: 6px;
+
+    transform:
+        translateY(-50%);
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        transparent;
+
+    color:
+        var(--muted);
+
+    cursor:
+        pointer;
+
+    font-size:
+        13px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.icon-button:hover {
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color:
+        var(--afriora-gold);
+}
+
+
+/* =========================================================
+   REMEMBER ME
+========================================================= */
+
+.login-options {
+
+    margin:
+        1px 0 18px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+
+.login-options label {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    cursor:
+        pointer;
+}
+
+
+.login-options input {
+
+    width:
+        13px;
+
+    height:
+        13px;
+
+    accent-color:
+        var(--afriora-red);
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-submit {
+
+    width:
+        100%;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    border:
+        none;
+
+    border-radius:
+        21px;
+
+    background:
+        var(--afriora-red);
+
+    color:
+        var(--white);
+
+    cursor:
+        pointer;
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.login-submit:hover {
+
+    background:
+        var(--afriora-red-light);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 20px
+        rgba(139, 30, 63, 0.28);
+}
+
+
+.login-submit:active {
+
+    transform:
+        translateY(0);
+}
+
+
+.login-submit:disabled {
+
+    opacity:
+        0.55;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+    box-shadow:
+        none;
+}
+
+
+.button-icon {
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   LOGIN RESULT
+========================================================= */
+
+.login-result {
+
+    min-height:
+        18px;
+
+    margin-top:
+        10px;
+
+    text-align:
+        center;
+
+    font-size:
+        11px;
+}
+
+
+.login-result.error {
+
+    color:
+        #ff7184;
+}
+
+
+.login-result.success {
+
+    color:
+        #69d99b;
+}
+
+
+/* =========================================================
+   SECURITY MESSAGE
+========================================================= */
+
+.security-note {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        9px;
+
+    margin-top:
+        20px;
+
+    padding:
+        11px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        11px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+.security-icon {
+
+    font-size:
+        15px;
+
+    line-height:
+        1;
+}
+
+
+.security-note strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        2px;
+
+    font-size:
+        11px;
+}
+
+
+.security-note p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    line-height:
+        1.45;
+}
+
+
+/* =========================================================
+   REGISTER LINK
+========================================================= */
+
+.register-link {
+
+    text-align:
+        center;
+
+    margin-top:
+        20px;
+}
+
+
+.register-link p {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+
+.register-link a {
+
+    color:
+        var(--afriora-gold);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        600;
+
+    margin-left:
+        3px;
+}
+
+
+.register-link a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+/* =========================================================
+   BACK TO AFRIORA
+========================================================= */
+
+.back-link {
+
+    display:
+        block;
+
+    width:
+        fit-content;
+
+    margin:
+        16px auto 0;
+
+    color:
+        #a999a1;
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.back-link:hover {
+
+    color:
+        var(--afriora-gold);
+}
+
+
+/* =========================================================
+   LOADING STATE
+========================================================= */
+
+.login-submit.loading {
+
+    pointer-events:
+        none;
+
+    opacity:
+        0.65;
+}
+
+
+.login-submit.loading .button-icon {
+
+    animation:
+        loginSpin 0.8s linear infinite;
+}
+
+
+@keyframes loginSpin {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .login-page {
+
+        padding:
+            18px 12px;
+    }
+
+
+    .login-card {
+
+        padding:
+            27px 20px;
+
+        border-radius:
+            17px;
+    }
+
+
+    .brand {
+
+        margin-bottom:
+            21px;
+    }
+
+
+    .brand h1 {
+
+        font-size:
+            23px;
+    }
+
+
+    .login-heading h2 {
+
+        font-size:
+            21px;
+    }
+
+
+    .social-button {
+
+        height:
+            41px;
+
+        font-size:
+            11.5px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .login-card {
+
+        padding:
+            24px 17px;
+    }
+
+
+    .login-heading h2 {
+
+        font-size:
+            19px;
+    }
+
+
+    .form-group input {
+
+        height:
+            41px;
+
+        font-size:
+            12px;
+    }
+
+
+    .login-submit {
+
+        height:
+            40px;
+
+        font-size:
+            12px;
+    }
+
+
+    .social-button {
+
+        height:
+            40px;
+
+        font-size:
+            11px;
+    }
+
+}

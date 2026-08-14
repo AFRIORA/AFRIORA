@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Ghana Connect | Settings
+</title>
+
+
+<link rel="stylesheet" href="settings.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="settings-container">
+
+
+
+
+
+
+<!-- HEADER -->
+
+<header class="settings-header">
+
+
+<a href="dashboard.html">
+
+<i class="fas fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+
+
+<h1>
+
+Account Settings
+
+</h1>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- PROFILE SETTINGS -->
+
+<section class="settings-card">
+
+
+<h2>
+
+<i class="fas fa-user"></i>
+
+Profile Settings
+
+</h2>
+
+
+
+
+
+<div class="setting-item">
+
+
+<div>
+
+<h3>
+Edit Profile
+</h3>
+
+
+<p>
+Update your personal information, photos and interests.
+</p>
+
+
+</div>
+
+
+<button onclick="editProfile()">
+
+Edit
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="setting-item">
+
+
+<div>
+
+<h3>
+Profile Visibility
+</h3>
+
+
+<p>
+Control who can see your profile.
+</p>
+
+
+</div>
+
+
+<select id="visibility">
+
+
+<option>
+Everyone
+</option>
+
+
+<option>
+Verified Members Only
+</option>
+
+
+<option>
+Private
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ACCOUNT SECURITY -->
+
+<section class="settings-card">
+
+
+<h2>
+
+<i class="fas fa-lock"></i>
+
+Security
+
+</h2>
+
+
+
+
+
+
+<div class="setting-item">
+
+
+<div>
+
+<h3>
+Change Password
+</h3>
+
+
+<p>
+Update your account password.
+</p>
+
+
+</div>
+
+
+
+<button onclick="changePassword()">
+
+Change
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="setting-item">
+
+
+<div>
+
+<h3>
+Two Factor Authentication
+</h3>
+
+
+<p>
+Add extra protection to your account.
+</p>
+
+
+</div>
+
+
+
+<button onclick="securitySetup()">
+
+Enable
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- NOTIFICATION SETTINGS -->
+
+
+<section class="settings-card">
+
+
+<h2>
+
+<i class="fas fa-bell"></i>
+
+Notifications
+
+</h2>
+
+
+
+
+
+
+
+<div class="toggle-item">
+
+
+<label>
+
+Messages
+
+</label>
+
+
+<input type="checkbox" checked>
+
+
+</div>
+
+
+
+
+
+
+<div class="toggle-item">
+
+
+<label>
+
+New Matches
+
+</label>
+
+
+<input type="checkbox" checked>
+
+
+</div>
+
+
+
+
+
+
+<div class="toggle-item">
+
+
+<label>
+
+Likes
+
+</label>
+
+
+<input type="checkbox" checked>
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SUBSCRIPTION -->
+
+
+<section class="settings-card premium-setting">
+
+
+<h2>
+
+<i class="fas fa-crown"></i>
+
+Subscription
+
+</h2>
+
+
+
+
+
+<p>
+
+Manage your Ghana Connect Premium membership.
+
+</p>
+
+
+
+<button onclick="managePremium()">
+
+Manage Premium
+
+</button>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PRIVACY -->
+
+
+<section class="settings-card">
+
+
+<h2>
+
+<i class="fas fa-shield-halved"></i>
+
+Privacy
+
+</h2>
+
+
+
+
+
+
+<div class="setting-item">
+
+
+<div>
+
+
+<h3>
+Blocked Users
+</h3>
+
+
+<p>
+Manage people you blocked.
+</p>
+
+
+</div>
+
+
+
+<button onclick="blockedUsers()">
+
+View
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- DELETE ACCOUNT -->
+
+
+<section class="danger-card">
+
+
+<h2>
+
+<i class="fas fa-trash"></i>
+
+Danger Zone
+
+</h2>
+
+
+
+
+<p>
+
+Deleting your account permanently removes your profile and information.
+
+</p>
+
+
+
+<button onclick="deleteAccount()">
+
+Delete Account
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script src="settings.js"></script>
+
+
+</body>
+
+
+</html>

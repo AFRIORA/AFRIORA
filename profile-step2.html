@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AFRIORA | Profile Setup</title>
+
+    <link rel="stylesheet" href="profile-step2.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<main class="page">
+
+    <div class="container">
+
+        <!-- BRAND -->
+        <header class="brand-header">
+
+            <a href="welcome.html" class="brand">
+                <span class="brand-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span>AFRIORA</span>
+            </a>
+
+            <div class="step-indicator">
+                <span>STEP</span>
+                <strong>02</strong>
+                <span>OF 03</span>
+            </div>
+
+        </header>
+
+
+        <!-- PROGRESS -->
+        <div class="progress-area">
+
+            <div class="progress-label">
+                <span>Personality & Preferences</span>
+                <strong>66%</strong>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+
+            <div class="progress-dots">
+
+                <span class="done">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+
+                <span class="active">2</span>
+
+                <span>3</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- INTRO -->
+        <section class="intro">
+
+            <div class="intro-icon">
+                <i class="fa-solid fa-sparkles"></i>
+            </div>
+
+            <div>
+                <p class="eyebrow">
+                    PERSONALIZE YOUR PROFILE
+                </p>
+
+                <h1>
+                    Tell us what makes you,
+                    <span>you.</span>
+                </h1>
+
+                <p class="intro-text">
+                    Your preferences help us create more meaningful
+                    connections based on personality, lifestyle and
+                    what you're looking for.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- FORM -->
+        <form id="stepTwoForm">
+
+
+            <!-- BIO -->
+            <section class="form-card">
+
+                <div class="section-header">
+
+                    <div class="section-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                    <div>
+                        <h2>About You</h2>
+                        <p>Give people a glimpse of your personality.</p>
+                    </div>
+
+                </div>
+
+                <label for="bio">
+                    Your Bio
+                </label>
+
+                <textarea
+                    id="bio"
+                    maxlength="500"
+                    placeholder="Tell people about yourself, your values, interests and what makes you unique..."
+                ></textarea>
+
+                <div class="counter">
+                    <span id="bioCount">0</span>
+                    <span>/ 500</span>
+                </div>
+
+            </section>
+
+
+            <!-- RELATIONSHIP GOAL -->
+            <section class="form-card">
+
+                <div class="section-header">
+
+                    <div class="section-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <div>
+                        <h2>What are you looking for?</h2>
+                        <p>Choose the type of connection you want.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="choice-grid">
+
+                    <label class="choice-card">
+
+                        <input
+                            type="radio"
+                            name="relationshipGoal"
+                            value="Marriage"
+                            required
+                        >
+
+                        <span class="choice-content">
+                            <i class="fa-solid fa-ring"></i>
+                            <strong>Marriage</strong>
+                            <small>Looking for a lifelong partner</small>
+                        </span>
+
+                        <span class="choice-check">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                    </label>
+
+
+                    <label class="choice-card">
+
+                        <input
+                            type="radio"
+                            name="relationshipGoal"
+                            value="Serious Relationship"
+                        >
+
+                        <span class="choice-content">
+                            <i class="fa-solid fa-heart"></i>
+                            <strong>Serious Relationship</strong>
+                            <small>Looking for something meaningful</small>
+                        </span>
+
+                        <span class="choice-check">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                    </label>
+
+
+                    <label class="choice-card">
+
+                        <input
+                            type="radio"
+                            name="relationshipGoal"
+                            value="Friendship"
+                        >
+
+                        <span class="choice-content">
+                            <i class="fa-solid fa-users"></i>
+                            <strong>Friendship</strong>
+                            <small>Build genuine connections</small>
+                        </span>
+
+                        <span class="choice-check">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- PARTNER PREFERENCES -->
+            <section class="form-card">
+
+                <div class="section-header">
+
+                    <div class="section-icon">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div>
+                        <h2>Partner Preferences</h2>
+                        <p>Tell us what you're comfortable with.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="preference-grid">
+
+                    <div class="field">
+
+                        <label for="preferredGender">
+                            Partner Gender
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="preferredGender">
+
+                                <option value="">
+                                    Any Gender
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="preferredAge">
+                            Preferred Age
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="preferredAge">
+
+                                <option value="18 - 25">
+                                    18 - 25
+                                </option>
+
+                                <option value="26 - 35">
+                                    26 - 35
+                                </option>
+
+                                <option value="36 - 45">
+                                    36 - 45
+                                </option>
+
+                                <option value="46+">
+                                    46+
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label for="preferredRegion">
+                            Preferred Location
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="preferredRegion">
+
+                                <option value="Any">
+                                    Anywhere
+                                </option>
+
+                                <option value="Region 1">
+                                    Region 1
+                                </option>
+
+                                <option value="Region 2">
+                                    Region 2
+                                </option>
+
+                                <option value="Region 3">
+                                    Region 3
+                                </option>
+
+                                <option value="Region 4">
+                                    Region 4
+                                </option>
+
+                                <option value="Region 5">
+                                    Region 5
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- INTERESTS -->
+            <section class="form-card">
+
+                <div class="section-header">
+
+                    <div class="section-icon">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+
+                    <div>
+                        <h2>Your Interests</h2>
+                        <p>Select the things you genuinely enjoy.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="interest-grid">
+
+                    <label class="interest">
+                        <input type="checkbox" value="Business">
+                        <span>
+                            <i class="fa-solid fa-briefcase"></i>
+                            Business
+                        </span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input type="checkbox" value="Travel">
+                        <span>
+                            <i class="fa-solid fa-plane"></i>
+                            Travel
+                        </span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input type="checkbox" value="Religion">
+                        <span>
+                            <i class="fa-solid fa-book-open"></i>
+                            Spirituality
+                        </span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input type="checkbox" value="Sports">
+                        <span>
+                            <i class="fa-solid fa-dumbbell"></i>
+                            Sports
+                        </span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input type="checkbox" value="Music">
+                        <span>
+                            <i class="fa-solid fa-music"></i>
+                            Music
+                        </span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input type="checkbox" value="Cooking">
+                        <span>
+                            <i class="fa-solid fa-utensils"></i>
+                            Cooking
+                        </span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input type="checkbox" value="Family">
+                        <span>
+                            <i class="fa-solid fa-house"></i>
+                            Family
+                        </span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- LIFESTYLE -->
+            <section class="form-card last">
+
+                <div class="section-header">
+
+                    <div class="section-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+
+                    <div>
+                        <h2>Lifestyle</h2>
+                        <p>A few details about your everyday life.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="preference-grid">
+
+                    <div class="field">
+
+                        <label for="smoking">
+                            Smoking
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="smoking">
+
+                                <option value="Never">
+                                    Never
+                                </option>
+
+                                <option value="Sometimes">
+                                    Sometimes
+                                </option>
+
+                                <option value="Yes">
+                                    Yes
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="drinking">
+                            Drinking
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="drinking">
+
+                                <option value="Never">
+                                    Never
+                                </option>
+
+                                <option value="Sometimes">
+                                    Sometimes
+                                </option>
+
+                                <option value="Yes">
+                                    Yes
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label for="children">
+                            Children
+                        </label>
+
+                        <div class="select-wrapper">
+
+                            <select id="children">
+
+                                <option value="Have Children">
+                                    I have children
+                                </option>
+
+                                <option value="Want Children">
+                                    I want children
+                                </option>
+
+                                <option value="Do Not Want Children">
+                                    I don't want children
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MESSAGE -->
+            <p id="message"></p>
+
+
+            <!-- ACTIONS -->
+            <div class="step-buttons">
+
+                <a
+                    href="profile-step1.html"
+                    class="back-btn"
+                >
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back
+                </a>
+
+
+                <button type="submit">
+
+                    Continue
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <footer class="footer">
+
+            <i class="fa-solid fa-lock"></i>
+
+            Your preferences are private and used only
+            to improve your experience.
+
+        </footer>
+
+    </div>
+
+</main>
+
+
+<script src="profile-step2.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Ghana Connect | My Profile
+</title>
+
+
+<link rel="stylesheet" href="profile-view.css">
+
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+</head>
+
+
+<body>
+
+
+
+<div class="profile-page">
+
+
+
+
+
+<!-- HEADER -->
+
+
+<header class="profile-header">
+
+
+<a href="dashboard.html">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Dashboard
+
+</a>
+
+
+
+<h1>
+
+My Profile
+
+</h1>
+
+
+
+<a href="settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+</a>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+<!-- PROFILE CARD -->
+
+
+<section class="profile-card">
+
+
+
+
+
+<div class="profile-image-box">
+
+
+<img
+
+id="profilePhoto"
+
+src="images/default-profile.png"
+
+alt="Profile Photo">
+
+
+
+<div class="verified-badge">
+
+
+<i class="fa-solid fa-circle-check"></i>
+
+Verified Ghanaian
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="profile-info">
+
+
+
+<h2 id="profileName">
+
+Loading...
+
+</h2>
+
+
+
+<p id="profileLocation">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Loading...
+
+</p>
+
+
+
+
+
+<p id="profileAge">
+
+</p>
+
+
+
+
+<div class="status-box">
+
+
+<span>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Ghana Card Verified
+
+</span>
+
+
+
+<span>
+
+<i class="fa-solid fa-phone"></i>
+
+Phone Verified
+
+</span>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PROFILE COMPLETION -->
+
+
+<section class="card">
+
+
+
+<div class="section-title">
+
+
+<h2>
+
+Profile Strength
+
+</h2>
+
+
+
+<span id="completionPercent">
+
+0%
+
+</span>
+
+
+</div>
+
+
+
+
+
+
+<div class="progress">
+
+
+<div id="profileProgress">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<a href="profile-step1.html">
+
+<button class="edit-btn">
+
+<i class="fa-solid fa-pen"></i>
+
+Edit Profile
+
+</button>
+
+</a>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ABOUT -->
+
+
+<section class="card">
+
+
+<h2>
+
+About Me
+
+</h2>
+
+
+<p id="profileBio">
+
+No bio added yet.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- DETAILS -->
+
+
+<section class="card">
+
+
+
+<h2>
+
+Personal Details
+
+</h2>
+
+
+
+
+<div class="details-grid">
+
+
+
+<div>
+
+<strong>
+
+Gender
+
+</strong>
+
+<p id="profileGender">
+
+-
+
+</p>
+
+</div>
+
+
+
+
+
+
+<div>
+
+<strong>
+
+Region
+
+</strong>
+
+
+<p id="profileRegion">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+<strong>
+
+Relationship Goal
+
+</strong>
+
+
+<p id="profileGoal">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div>
+
+<strong>
+
+Interests
+
+</strong>
+
+
+<p id="profileInterests">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- LIFESTYLE -->
+
+
+<section class="card">
+
+
+
+<h2>
+
+Lifestyle
+
+</h2>
+
+
+
+
+<div class="details-grid">
+
+
+
+<div>
+
+<strong>
+
+Smoking
+
+</strong>
+
+
+<p id="profileSmoking">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div>
+
+<strong>
+
+Drinking
+
+</strong>
+
+
+<p id="profileDrinking">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div>
+
+<strong>
+
+Children
+
+</strong>
+
+
+<p id="profileChildren">
+
+-
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SAFETY -->
+
+
+<section class="card safety">
+
+
+
+<h2>
+
+<i class="fa-solid fa-shield"></i>
+
+Safety Status
+
+</h2>
+
+
+
+
+<ul>
+
+
+<li>
+
+<i class="fa-solid fa-check"></i>
+
+Identity Verified
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-check"></i>
+
+Phone Verified
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-check"></i>
+
+Community Rules Accepted
+
+</li>
+
+
+
+</ul>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script src="profile-view.js"></script>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,1469 @@
+/* =========================================================
+   AFRIORA — REGISTER PAGE
+   Premium • Secure • Responsive
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    --red: #8b1e3f;
+    --red-light: #a82a52;
+    --gold: #d4a017;
+
+    --background: #10090d;
+    --background-light: #1c1017;
+
+    --card: rgba(28, 17, 23, 0.96);
+
+    --white: #ffffff;
+    --soft-white: #f4edf1;
+
+    --muted: #b9aab2;
+
+    --border: rgba(255, 255, 255, 0.12);
+
+    --input:
+        rgba(255, 255, 255, 0.055);
+
+    --success: #68d89a;
+    --error: #ff7184;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--white);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(12, 6, 10, 0.94),
+            rgba(67, 19, 39, 0.82)
+        ),
+
+        url("assets/images/romantic-background.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding:
+        35px 18px 60px;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    padding:
+        30px 32px 38px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    box-shadow:
+
+        0 25px 80px
+        rgba(0, 0, 0, 0.5);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+}
+
+
+/* =========================================================
+   TOP NAVIGATION
+========================================================= */
+
+.top-navigation {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+
+.back-btn,
+.login-btn {
+
+    min-height: 38px;
+
+    padding:
+        0 15px;
+
+    border-radius: 20px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.back-btn {
+
+    color:
+        var(--soft-white);
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.back-btn:hover {
+
+    background:
+        rgba(255,255,255,0.09);
+
+    border-color:
+        rgba(255,255,255,0.2);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.login-btn {
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(212,160,23,0.08);
+
+    border:
+        1px solid
+        rgba(212,160,23,0.35);
+}
+
+
+.login-btn:hover {
+
+    background:
+        rgba(212,160,23,0.15);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+
+    text-align: center;
+
+    margin-bottom: 24px;
+}
+
+
+.brand-symbol {
+
+    width: 46px;
+
+    height: 46px;
+
+    margin:
+        0 auto 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(139,30,63,0.28);
+
+    border:
+        1px solid
+        rgba(212,160,23,0.35);
+
+    box-shadow:
+        0 0 25px
+        rgba(212,160,23,0.08);
+
+    font-size: 19px;
+}
+
+
+.brand h1 {
+
+    color:
+        var(--gold);
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.brand p {
+
+    margin-top: 5px;
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+
+    letter-spacing: 0.6px;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.page-heading {
+
+    text-align: center;
+
+    margin-bottom: 22px;
+}
+
+
+.page-heading h2 {
+
+    font-size: 24px;
+
+    font-weight: 750;
+
+    margin-bottom: 5px;
+}
+
+
+.page-heading p {
+
+    color:
+        var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SECURITY NOTICE
+========================================================= */
+
+.notice {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding:
+        14px;
+
+    margin-bottom: 25px;
+
+    border:
+        1px solid
+        rgba(212,160,23,0.18);
+
+    border-radius: 13px;
+
+    background:
+        rgba(212,160,23,0.045);
+}
+
+
+.notice-icon {
+
+    flex-shrink: 0;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(212,160,23,0.09);
+}
+
+
+.notice strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color:
+        var(--soft-white);
+
+    font-size: 12px;
+}
+
+
+.notice p {
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group {
+
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--soft-white);
+
+    font-size: 12px;
+
+    font-weight: 650;
+}
+
+
+.form-group small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        #91828a;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   INPUTS / SELECT
+========================================================= */
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 45px;
+
+    padding:
+        0 13px;
+
+    outline: none;
+
+    color:
+        var(--white);
+
+    background:
+        var(--input);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition:
+        border 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+
+    color:
+        #887981;
+}
+
+
+.form-group input:hover,
+.form-group select:hover {
+
+    border-color:
+        rgba(255,255,255,0.2);
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color:
+        rgba(212,160,23,0.65);
+
+    background:
+        rgba(255,255,255,0.075);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(212,160,23,0.06);
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.form-group select {
+
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+
+.form-group select option {
+
+    color:
+        #111;
+
+    background:
+        #ffffff;
+}
+
+
+/* =========================================================
+   COUNTRY SEARCH
+========================================================= */
+
+.country-search-box {
+
+    position: relative;
+}
+
+
+.country-search-box i {
+
+    position: absolute;
+
+    left: 13px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--gold);
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+
+.country-search-box input {
+
+    padding-left: 38px;
+}
+
+
+/* =========================================================
+   SELECTED COUNTRY
+========================================================= */
+
+.selected-country {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 8px;
+
+    min-height: 39px;
+
+    padding:
+        8px 11px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(212,160,23,0.07);
+
+    border:
+        1px solid
+        rgba(212,160,23,0.2);
+
+    font-size: 12px;
+}
+
+
+#selectedCountryFlag {
+
+    font-size: 18px;
+}
+
+
+#selectedCountryName {
+
+    font-weight: 650;
+
+    color:
+        var(--soft-white);
+}
+
+
+#selectedCountryCode {
+
+    margin-left: auto;
+
+    color:
+        var(--gold);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   COUNTRY RESULTS
+========================================================= */
+
+.country-results {
+
+    position: relative;
+
+    z-index: 50;
+
+    width: 100%;
+
+    max-height: 230px;
+
+    margin-top: 6px;
+
+    overflow-y: auto;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background:
+        #21131b;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.4);
+}
+
+
+.country-result {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    min-height: 43px;
+
+    padding:
+        8px 12px;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.05);
+
+    color:
+        var(--soft-white);
+
+    background:
+        transparent;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease;
+}
+
+
+.country-result:last-child {
+
+    border-bottom: none;
+}
+
+
+.country-result:hover {
+
+    background:
+        rgba(212,160,23,0.1);
+}
+
+
+.country-result-flag {
+
+    width: 25px;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+
+.country-result-name {
+
+    flex: 1;
+
+    font-size: 12px;
+}
+
+
+.country-result-code {
+
+    color:
+        var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   IDENTITY DOCUMENT BOX
+========================================================= */
+
+.document-type-box {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 9px;
+
+    padding:
+        9px 11px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(139,30,63,0.08);
+
+    border:
+        1px solid
+        rgba(139,30,63,0.25);
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    line-height: 1.4;
+}
+
+
+.document-type-box strong {
+
+    color:
+        var(--soft-white);
+}
+
+
+#documentType {
+
+    color:
+        var(--gold);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-box {
+
+    position: relative;
+}
+
+
+.password-box input {
+
+    padding-right: 48px;
+}
+
+
+#showPassword {
+
+    position: absolute;
+
+    right: 6px;
+
+    top: 50%;
+
+    width: 34px;
+
+    height: 34px;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    color:
+        var(--muted);
+
+    background:
+        transparent;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+#showPassword:hover {
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(255,255,255,0.06);
+}
+
+
+/* =========================================================
+   PASSWORD STRENGTH
+========================================================= */
+
+.strength {
+
+    width: 100%;
+
+    height: 4px;
+
+    margin-top: 8px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+
+#strengthBar {
+
+    width: 0;
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    background:
+        var(--red);
+
+    transition:
+        width 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.password-strength {
+
+    min-height: 13px;
+
+    margin-top: 5px;
+
+    font-size: 9px;
+
+    color:
+        var(--muted);
+}
+
+
+.password-match {
+
+    min-height: 13px;
+
+    margin-top: 5px;
+
+    font-size: 9px;
+}
+
+
+.password-match.success {
+
+    color:
+        var(--success);
+}
+
+
+.password-match.error {
+
+    color:
+        var(--error);
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin:
+        20px 0;
+
+    color:
+        var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.55;
+}
+
+
+.terms input {
+
+    width: 15px;
+
+    height: 15px;
+
+    flex-shrink: 0;
+
+    margin-top: 1px;
+
+    accent-color:
+        var(--red);
+
+    cursor: pointer;
+}
+
+
+.terms label {
+
+    cursor: pointer;
+}
+
+
+.terms a {
+
+    color:
+        var(--gold);
+
+    text-decoration: none;
+}
+
+
+.terms a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.submit-btn {
+
+    width: 100%;
+
+    min-height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: none;
+
+    border-radius: 23px;
+
+    color:
+        var(--white);
+
+    background:
+        var(--red);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.submit-btn:hover {
+
+    background:
+        var(--red-light);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(139,30,63,0.3);
+}
+
+
+.submit-btn:active {
+
+    transform:
+        translateY(0);
+}
+
+
+.submit-btn:disabled {
+
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   FORM RESULT
+========================================================= */
+
+.form-result {
+
+    min-height: 18px;
+
+    margin-top: 11px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.form-result.error {
+
+    color:
+        var(--error);
+}
+
+
+.form-result.success {
+
+    color:
+        var(--success);
+}
+
+
+/* =========================================================
+   VERIFICATION INFORMATION
+========================================================= */
+
+.verification-info {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    margin-top: 22px;
+
+    padding:
+        12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,0.035);
+}
+
+
+.verification-icon {
+
+    flex-shrink: 0;
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color:
+        var(--gold);
+
+    background:
+        rgba(212,160,23,0.08);
+}
+
+
+.verification-info strong {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 10px;
+
+    color:
+        var(--soft-white);
+}
+
+
+.verification-info p {
+
+    color:
+        var(--muted);
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   EXISTING ACCOUNT
+========================================================= */
+
+.existing-account {
+
+    margin-top: 22px;
+
+    text-align: center;
+}
+
+
+.existing-account p {
+
+    color:
+        var(--muted);
+
+    font-size: 11px;
+}
+
+
+.existing-account a {
+
+    margin-left: 4px;
+
+    color:
+        var(--gold);
+
+    font-weight: 650;
+
+    text-decoration: none;
+}
+
+
+.existing-account a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   INPUT VALIDATION
+========================================================= */
+
+.form-group input.invalid,
+.form-group select.invalid {
+
+    border-color:
+        rgba(255,113,132,0.7);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,113,132,0.05);
+}
+
+
+.form-group input.valid,
+.form-group select.valid {
+
+    border-color:
+        rgba(104,216,154,0.45);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.country-results::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.country-results::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+}
+
+
+.country-results::-webkit-scrollbar-thumb {
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.15);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .page {
+
+        padding:
+            20px 12px 40px;
+    }
+
+
+    .container {
+
+        padding:
+            25px 21px 30px;
+
+        border-radius: 19px;
+    }
+
+
+    .brand h1 {
+
+        font-size: 24px;
+    }
+
+
+    .page-heading h2 {
+
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .page {
+
+        padding:
+            12px 8px 30px;
+    }
+
+
+    .container {
+
+        padding:
+            22px 16px 28px;
+
+        border-radius: 17px;
+    }
+
+
+    .top-navigation {
+
+        margin-bottom: 23px;
+    }
+
+
+    .back-btn,
+    .login-btn {
+
+        min-height: 35px;
+
+        padding:
+            0 11px;
+
+        font-size: 10px;
+    }
+
+
+    .brand {
+
+        margin-bottom: 20px;
+    }
+
+
+    .brand-symbol {
+
+        width: 42px;
+
+        height: 42px;
+    }
+
+
+    .brand h1 {
+
+        font-size: 22px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .page-heading h2 {
+
+        font-size: 20px;
+    }
+
+
+    .page-heading p {
+
+        font-size: 11px;
+    }
+
+
+    .notice {
+
+        padding: 11px;
+
+        gap: 9px;
+    }
+
+
+    .notice p {
+
+        font-size: 9px;
+    }
+
+
+    .form-group {
+
+        margin-bottom: 16px;
+    }
+
+
+    .form-group input,
+    .form-group select {
+
+        height: 43px;
+
+        font-size: 12px;
+    }
+
+
+    .submit-btn {
+
+        min-height: 43px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .container {
+
+        padding:
+            20px 13px 25px;
+    }
+
+
+    .top-navigation {
+
+        gap: 7px;
+    }
+
+
+    .back-btn,
+    .login-btn {
+
+        padding:
+            0 8px;
+
+        font-size: 9px;
+    }
+
+
+    .brand h1 {
+
+        font-size: 20px;
+    }
+
+
+    .page-heading h2 {
+
+        font-size: 18px;
+    }
+
+
+    .form-group input,
+    .form-group select {
+
+        height: 41px;
+
+        padding:
+            0 10px;
+
+        font-size: 11px;
+    }
+
+}
