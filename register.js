@@ -1,37 +1,33 @@
-```javascript
 /* =========================================================
    AFRIORA — REGISTER SYSTEM
-   =========================================================
-
+   ---------------------------------------------------------
    FLOW:
 
-   register.html
-        ↓
-   Supabase Auth signUp()
-        ↓
-   Supabase sends confirmation/OTP email
-        ↓
-   Save SAFE registration data
-        ↓
+   Register
+      ↓
+   Supabase Auth account creation
+      ↓
+   Supabase sends email OTP
+      ↓
    otp.html
-        ↓
+      ↓
    Verify OTP
-        ↓
-   Save profile to Supabase
-        ↓
-   Continue to dashboard/profile
+      ↓
+   Save profile
+      ↓
+   Continue to profile/dashboard
 
-   IMPORTANT:
-   - No supabase.js required.
+   SECURITY:
+   - Password is handled by Supabase Auth.
    - Password is NEVER stored in sessionStorage.
    - Identity number is NEVER stored in sessionStorage.
-   - Profile is NOT inserted before OTP verification.
-   - Never use the Supabase service-role key in browser code.
+   - Never use the Supabase service-role/secret key here.
+   - Browser code uses only the publishable/anon key.
 ========================================================= */
 
 
 /* =========================================================
-   SUPABASE CONFIGURATION
+   CONFIGURATION
 ========================================================= */
 
 const AFRIORA_SUPABASE_URL =
@@ -52,11 +48,11 @@ if (
     typeof window.supabase.createClient !== "function"
 ) {
     console.error(
-        "AFRIORA: Supabase library was not loaded."
+        "AFRIORA: Supabase JavaScript library was not loaded."
     );
 
     alert(
-        "AFRIORA could not load Supabase. Please check your internet connection."
+        "AFRIORA could not load Supabase. Make sure the Supabase CDN script is loaded before register.js."
     );
 
     throw new Error(
@@ -179,7 +175,7 @@ const countries = [
         flag: "🇷🇼",
         phoneCode: "+250",
         identity: "National ID Number",
-        placeholder: "Enter your National ID number"
+        placeholder: "Enter your national ID number"
     },
 
     {
@@ -224,7 +220,7 @@ const countries = [
         flag: "🇱🇷",
         phoneCode: "+231",
         identity: "National ID Number",
-        placeholder: "Enter your National ID number"
+        placeholder: "Enter your national ID number"
     },
 
     {
@@ -233,7 +229,7 @@ const countries = [
         flag: "🇬🇲",
         phoneCode: "+220",
         identity: "National ID Number",
-        placeholder: "Enter your National ID number"
+        placeholder: "Enter your national ID number"
     },
 
     {
@@ -242,7 +238,7 @@ const countries = [
         flag: "🇪🇬",
         phoneCode: "+20",
         identity: "National ID Number",
-        placeholder: "Enter your National ID number"
+        placeholder: "Enter your national ID number"
     },
 
     {
@@ -387,9 +383,6 @@ const identityNumber =
 const identityHelp =
     document.getElementById("identityHelp");
 
-const identityLabel =
-    document.getElementById("identityLabel");
-
 const documentType =
     document.getElementById("documentType");
 
@@ -527,13 +520,18 @@ function updateCountry(countryData) {
         identityGroup.style.display = "block";
     }
 
+    const identityLabel =
+        document.getElementById("identityLabel");
+
     if (identityLabel) {
         identityLabel.textContent =
             countryData.identity;
     }
 
     if (identityNumber) {
+
         identityNumber.disabled = false;
+
         identityNumber.placeholder =
             countryData.placeholder;
     }
@@ -640,9 +638,10 @@ function renderCountryResults(searchValue = "") {
         button.appendChild(name);
         button.appendChild(code);
 
-        button.addEventListener("click", () => {
-            updateCountry(item);
-        });
+        button.addEventListener(
+            "click",
+            () => updateCountry(item)
+        );
 
         countryResults.appendChild(button);
 
@@ -666,110 +665,147 @@ function hideCountryResults() {
 
 
 /* =========================================================
-   COUNTRY EVENTS
+   COUNTRY SEARCH EVENTS
 ========================================================= */
 
 if (countrySearch) {
 
-    countrySearch.addEventListener("input", () => {
+    countrySearch.addEventListener(
+        "input",
+        () => {
 
-        if (country) {
-            country.value = "";
+            if (country) {
+                country.value = "";
+            }
+
+            if (identityGroup) {
+                identityGroup.hidden = true;
+                identityGroup.style.display = "none";
+            }
+
+            if (selectedCountry) {
+                selectedCountry.hidden = true;
+                selectedCountry.style.display = "none";
+            }
+
+            renderCountryResults(
+                countrySearch.value
+            );
         }
+    );
 
-        if (identityGroup) {
-            identityGroup.hidden = true;
+    countrySearch.addEventListener(
+        "focus",
+        () => {
+
+            renderCountryResults(
+                countrySearch.value
+            );
+
         }
-
-        if (selectedCountry) {
-            selectedCountry.hidden = true;
-        }
-
-        renderCountryResults(
-            countrySearch.value
-        );
-
-    });
-
-    countrySearch.addEventListener("focus", () => {
-
-        renderCountryResults(
-            countrySearch.value
-        );
-
-    });
-
+    );
 }
-
-
-document.addEventListener("click", event => {
-
-    if (
-        countryResults &&
-        countrySearch &&
-        !countryResults.contains(event.target) &&
-        event.target !== countrySearch
-    ) {
-        hideCountryResults();
-    }
-
-});
 
 
 /* =========================================================
-   PASSWORD SHOW/HIDE
+   CLOSE COUNTRY RESULTS
 ========================================================= */
 
-if (showPassword && password) {
+document.addEventListener(
+    "click",
+    event => {
 
-    showPassword.addEventListener("click", event => {
-
-        event.preventDefault();
-
-        if (password.type === "password") {
-
-            password.type = "text";
-
-            showPassword.innerHTML =
-                '<i class="fa-solid fa-eye-slash"></i>';
-
-            showPassword.setAttribute(
-                "aria-label",
-                "Hide password"
-            );
-
-            showPassword.setAttribute(
-                "title",
-                "Hide password"
-            );
-
-        } else {
-
-            password.type = "password";
-
-            showPassword.innerHTML =
-                '<i class="fa-solid fa-eye"></i>';
-
-            showPassword.setAttribute(
-                "aria-label",
-                "Show password"
-            );
-
-            showPassword.setAttribute(
-                "title",
-                "Show password"
-            );
-
+        if (
+            countryResults &&
+            countrySearch &&
+            !countryResults.contains(event.target) &&
+            event.target !== countrySearch
+        ) {
+            hideCountryResults();
         }
 
-    });
+    }
+);
 
+
+/* =========================================================
+   PASSWORD SHOW / HIDE
+========================================================= */
+
+function setupPasswordToggle() {
+
+    if (!showPassword || !password) {
+        return;
+    }
+
+    showPassword.addEventListener(
+        "click",
+        event => {
+
+            event.preventDefault();
+
+            const isPassword =
+                password.type === "password";
+
+            password.type =
+                isPassword ? "text" : "password";
+
+            showPassword.innerHTML =
+                isPassword
+                    ? '<i class="fa-solid fa-eye-slash"></i>'
+                    : '<i class="fa-solid fa-eye"></i>';
+
+            showPassword.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
+
+            showPassword.setAttribute(
+                "title",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
+        }
+    );
 }
+
+setupPasswordToggle();
 
 
 /* =========================================================
    PASSWORD STRENGTH
 ========================================================= */
+
+function getPasswordScore(value) {
+
+    let score = 0;
+
+    if (value.length >= 8) {
+        score++;
+    }
+
+    if (/[A-Z]/.test(value)) {
+        score++;
+    }
+
+    if (/[a-z]/.test(value)) {
+        score++;
+    }
+
+    if (/[0-9]/.test(value)) {
+        score++;
+    }
+
+    if (/[^A-Za-z0-9]/.test(value)) {
+        score++;
+    }
+
+    return score;
+}
+
 
 function checkPasswordStrength(value) {
 
@@ -777,27 +813,26 @@ function checkPasswordStrength(value) {
         return 0;
     }
 
-    let score = 0;
+    const score =
+        getPasswordScore(value);
 
-    if (value.length >= 8) score++;
-    if (/[A-Z]/.test(value)) score++;
-    if (/[a-z]/.test(value)) score++;
-    if (/[0-9]/.test(value)) score++;
-    if (/[^A-Za-z0-9]/.test(value)) score++;
+    const width =
+        (score / 5) * 100;
 
     strengthBar.style.width =
-        (score / 5) * 100 + "%";
-
-    const messages = [
-        "",
-        "Very weak",
-        "Weak",
-        "Fair",
-        "Strong",
-        "Very strong"
-    ];
+        `${width}%`;
 
     if (passwordStrength) {
+
+        const messages = [
+            "",
+            "Very weak",
+            "Weak",
+            "Fair",
+            "Strong",
+            "Very strong"
+        ];
+
         passwordStrength.textContent =
             messages[score];
     }
@@ -816,10 +851,30 @@ function checkPasswordStrength(value) {
 
         strengthBar.style.background =
             "#68d89a";
-
     }
 
     return score;
+}
+
+
+/* =========================================================
+   PASSWORD INPUT
+========================================================= */
+
+if (password) {
+
+    password.addEventListener(
+        "input",
+        () => {
+
+            checkPasswordStrength(
+                password.value
+            );
+
+            checkPasswordMatch();
+
+        }
+    );
 }
 
 
@@ -830,7 +885,7 @@ function checkPasswordStrength(value) {
 function checkPasswordMatch() {
 
     if (!password || !confirmPassword) {
-        return false;
+        return true;
     }
 
     if (!confirmPassword.value) {
@@ -844,11 +899,12 @@ function checkPasswordMatch() {
             passwordMatch.textContent = "";
         }
 
-        return false;
+        return true;
     }
 
     const matches =
-        password.value === confirmPassword.value;
+        password.value ===
+        confirmPassword.value;
 
     confirmPassword.classList.toggle(
         "valid",
@@ -866,25 +922,9 @@ function checkPasswordMatch() {
             matches
                 ? "Passwords match."
                 : "Passwords do not match.";
-
     }
 
     return matches;
-}
-
-
-if (password) {
-
-    password.addEventListener("input", () => {
-
-        checkPasswordStrength(
-            password.value
-        );
-
-        checkPasswordMatch();
-
-    });
-
 }
 
 
@@ -894,23 +934,24 @@ if (confirmPassword) {
         "input",
         checkPasswordMatch
     );
-
 }
 
 
 /* =========================================================
-   VALIDATION
+   EMAIL VALIDATION
 ========================================================= */
 
 function validEmail(value) {
 
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        .test(
-            String(value).trim()
-        );
-
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        String(value).trim()
+    );
 }
 
+
+/* =========================================================
+   AGE VALIDATION
+========================================================= */
 
 function isValidAge(dateValue) {
 
@@ -925,8 +966,7 @@ function isValidAge(dateValue) {
         return false;
     }
 
-    const today =
-        new Date();
+    const today = new Date();
 
     let age =
         today.getFullYear() -
@@ -950,18 +990,21 @@ function isValidAge(dateValue) {
 }
 
 
+/* =========================================================
+   PHONE NORMALIZATION
+========================================================= */
+
 function normalizePhone(value) {
 
     return String(value)
         .trim()
         .replace(/[^\d+]/g, "");
-
 }
 
 
 /* =========================================================
    REGISTRATION CONTEXT
-
+   ---------------------------------------------------------
    IMPORTANT:
    Identity number is deliberately NOT included.
 ========================================================= */
@@ -975,9 +1018,6 @@ function createRegistrationContext() {
 
         registrationId:
             "REG-" + Date.now(),
-
-        authUserId:
-            null,
 
         fullName:
             fullName?.value.trim() || "",
@@ -998,9 +1038,7 @@ function createRegistrationContext() {
             ),
 
         email:
-            email?.value
-                .trim()
-                .toLowerCase() || "",
+            email?.value.trim().toLowerCase() || "",
 
         identityType:
             selected
@@ -1026,11 +1064,7 @@ function createRegistrationContext() {
 
 
 /* =========================================================
-   SAVE SAFE LOCAL REGISTRATION
-
-   NO:
-   - password
-   - identity number
+   SAVE SAFE REGISTRATION DATA
 ========================================================= */
 
 function saveRegistrationContext(registration) {
@@ -1041,7 +1075,7 @@ function saveRegistrationContext(registration) {
             registration.registrationId,
 
         authUserId:
-            registration.authUserId,
+            registration.authUserId || null,
 
         fullName:
             registration.fullName,
@@ -1107,21 +1141,18 @@ async function createSupabaseAccount() {
                 data: {
 
                     full_name:
-                        fullName.value.trim(),
+                        fullName?.value.trim() || "",
 
                     country:
-                        country.value
-
+                        country?.value || ""
                 }
-
             }
-
         });
 
     if (result.error) {
 
         console.error(
-            "AFRIORA Supabase signup error:",
+            "AFRIORA Supabase registration error:",
             result.error
         );
 
@@ -1133,10 +1164,13 @@ async function createSupabaseAccount() {
 
 
 /* =========================================================
-   SAVE OTP CONTEXT
+   SAVE OTP INFORMATION
 ========================================================= */
 
-function saveOTPContext(emailAddress, userId) {
+function saveOTPContext(
+    emailAddress,
+    userId
+) {
 
     sessionStorage.setItem(
         "pendingOTPEmail",
@@ -1149,9 +1183,7 @@ function saveOTPContext(emailAddress, userId) {
             "pendingOTPUserId",
             userId
         );
-
     }
-
 }
 
 
@@ -1164,7 +1196,6 @@ function goToOTP() {
     window.location.replace(
         OTP_PAGE
     );
-
 }
 
 
@@ -1182,16 +1213,18 @@ if (registerForm) {
 
             showMessage("");
 
-            /* -----------------------------------------
+            /* =================================================
                REQUIRED FIELDS
-            ----------------------------------------- */
+               -------------------------------------------------
+               Identity number is intentionally NOT validated
+               here because it must not be stored locally.
+            ================================================= */
 
             if (
                 !fullName?.value.trim() ||
                 !country?.value ||
                 !phone?.value.trim() ||
                 !email?.value.trim() ||
-                !identityNumber?.value.trim() ||
                 !password?.value ||
                 !confirmPassword?.value ||
                 !dob?.value ||
@@ -1208,9 +1241,9 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                COUNTRY
-            ----------------------------------------- */
+            ================================================= */
 
             const selected =
                 findCountry(country.value);
@@ -1228,16 +1261,11 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                EMAIL
-            ----------------------------------------- */
+            ================================================= */
 
-            const emailAddress =
-                email.value
-                    .trim()
-                    .toLowerCase();
-
-            if (!validEmail(emailAddress)) {
+            if (!validEmail(email.value)) {
 
                 showMessage(
                     "Please enter a valid email address.",
@@ -1250,9 +1278,9 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                PASSWORD
-            ----------------------------------------- */
+            ================================================= */
 
             if (password.value.length < 8) {
 
@@ -1267,9 +1295,9 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                PASSWORD MATCH
-            ----------------------------------------- */
+            ================================================= */
 
             if (!checkPasswordMatch()) {
 
@@ -1284,19 +1312,19 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
-               PASSWORD STRENGTH
-            ----------------------------------------- */
+            /* =================================================
+               PASSWORD QUALITY
+            ================================================= */
 
             const passwordScore =
-                checkPasswordStrength(
+                getPasswordScore(
                     password.value
                 );
 
             if (passwordScore < 3) {
 
                 showMessage(
-                    "Please create a stronger password using uppercase letters, lowercase letters, numbers, or symbols.",
+                    "Please create a stronger password using uppercase letters, lowercase letters, numbers, and symbols.",
                     "error"
                 );
 
@@ -1306,9 +1334,9 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                AGE
-            ----------------------------------------- */
+            ================================================= */
 
             if (!isValidAge(dob.value)) {
 
@@ -1323,9 +1351,9 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                TERMS
-            ----------------------------------------- */
+            ================================================= */
 
             if (!terms?.checked) {
 
@@ -1338,9 +1366,19 @@ if (registerForm) {
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
+               EMAIL
+            ================================================= */
+
+            const emailAddress =
+                email.value
+                    .trim()
+                    .toLowerCase();
+
+
+            /* =================================================
                DISABLE BUTTON
-            ----------------------------------------- */
+            ================================================= */
 
             if (registerSubmit) {
 
@@ -1348,23 +1386,22 @@ if (registerForm) {
 
                 registerSubmit.innerHTML =
                     '<i class="fa-solid fa-spinner fa-spin"></i> Creating Account...';
-
             }
 
 
             try {
 
-                /* -------------------------------------
-                   CREATE SAFE REGISTRATION DATA
-                ------------------------------------- */
+                /* =============================================
+                   CREATE REGISTRATION CONTEXT
+                ============================================= */
 
                 const registration =
                     createRegistrationContext();
 
 
-                /* -------------------------------------
-                   CREATE SUPABASE AUTH ACCOUNT
-                ------------------------------------- */
+                /* =============================================
+                   CREATE AUTH ACCOUNT
+                ============================================= */
 
                 const authData =
                     await createSupabaseAccount();
@@ -1376,9 +1413,8 @@ if (registerForm) {
                 if (!user) {
 
                     throw new Error(
-                        "Supabase did not return a user."
+                        "Supabase did not return a user account."
                     );
-
                 }
 
 
@@ -1386,31 +1422,22 @@ if (registerForm) {
                     user.id;
 
 
-                /* -------------------------------------
-                   IMPORTANT
-
-                   DO NOT INSERT INTO profiles HERE.
-
-                   The user may not yet have a verified
-                   authenticated session.
-
-                   OTP PAGE WILL SAVE THE PROFILE AFTER
-                   SUCCESSFUL VERIFICATION.
-                ------------------------------------- */
-
-
-                /* -------------------------------------
+                /* =============================================
                    SAVE SAFE LOCAL CONTEXT
-                ------------------------------------- */
+
+                   DO NOT save:
+                   - password
+                   - identity number
+                ============================================= */
 
                 saveRegistrationContext(
                     registration
                 );
 
 
-                /* -------------------------------------
-                   SAVE OTP INFORMATION
-                ------------------------------------- */
+                /* =============================================
+                   SAVE OTP CONTEXT
+                ============================================= */
 
                 saveOTPContext(
                     emailAddress,
@@ -1419,29 +1446,27 @@ if (registerForm) {
 
 
                 console.log(
-                    "AFRIORA: Auth account created:",
+                    "AFRIORA Auth account created:",
                     user.id
                 );
 
 
-                /* -------------------------------------
-                   SUCCESS MESSAGE
-                ------------------------------------- */
+                /* =============================================
+                   SUCCESS
+                ============================================= */
 
                 showMessage(
-                    "Account created successfully. Check your email for your 6-digit verification code.",
+                    "Account created. Check your email for your verification code.",
                     "success"
                 );
 
 
-                /* -------------------------------------
-                   GO TO OTP PAGE
-                ------------------------------------- */
+                /* =============================================
+                   GO TO OTP
+                ============================================= */
 
                 setTimeout(
-                    () => {
-                        goToOTP();
-                    },
+                    goToOTP,
                     700
                 );
 
@@ -1464,15 +1489,9 @@ if (registerForm) {
 
 
                 if (
-                    errorText.includes(
-                        "already registered"
-                    ) ||
-                    errorText.includes(
-                        "already exists"
-                    ) ||
-                    errorText.includes(
-                        "user already registered"
-                    )
+                    errorText.includes("already registered") ||
+                    errorText.includes("already exists") ||
+                    errorText.includes("user already registered")
                 ) {
 
                     message =
@@ -1499,6 +1518,7 @@ if (registerForm) {
                 }
 
                 else if (
+                    errorText.includes("email rate limit") ||
                     errorText.includes("rate limit")
                 ) {
 
@@ -1512,16 +1532,16 @@ if (registerForm) {
                 ) {
 
                     message =
-                        "Registration is currently disabled in Supabase.";
+                        "Account registration is currently disabled in Supabase.";
 
                 }
 
                 else if (
-                    errorText.includes("email")
+                    errorText.includes("email provider")
                 ) {
 
                     message =
-                        "There was a problem sending the verification email. Please check your Supabase email settings.";
+                        "Email verification is not configured correctly in Supabase.";
 
                 }
 
@@ -1532,7 +1552,6 @@ if (registerForm) {
 
                     message =
                         "Connection problem. Please check your internet connection and try again.";
-
                 }
 
 
@@ -1544,24 +1563,21 @@ if (registerForm) {
 
                 if (registerSubmit) {
 
-                    registerSubmit.disabled =
-                        false;
+                    registerSubmit.disabled = false;
 
                     registerSubmit.innerHTML =
                         '<i class="fa-solid fa-user-plus"></i> Continue to Verification';
-
                 }
 
             }
 
         }
     );
-
 }
 
 
 /* =========================================================
-   DOB MAXIMUM DATE
+   DOB LIMIT
 ========================================================= */
 
 if (dob) {
@@ -1572,7 +1588,6 @@ if (dob) {
             .split("T")[0];
 
     dob.max = today;
-
 }
 
 
@@ -1588,7 +1603,6 @@ if (country?.value) {
     if (initialCountry) {
         updateCountry(initialCountry);
     }
-
 }
 
 
@@ -1604,7 +1618,7 @@ hideCountryResults();
 
 
 /* =========================================================
-   GLOBAL API
+   GLOBAL AFRIORA REGISTER API
 ========================================================= */
 
 window.AFRIORA_REGISTER = {
@@ -1627,15 +1641,13 @@ window.AFRIORA_REGISTER = {
 
     supabase:
         AFRIORA_CLIENT
-
 };
 
 
 /* =========================================================
-   LOADED
+   DEBUG CONFIRMATION
 ========================================================= */
 
 console.log(
     "AFRIORA register.js loaded successfully."
 );
-```
